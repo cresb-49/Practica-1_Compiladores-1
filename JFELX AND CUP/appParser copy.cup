@@ -1,0 +1,40 @@
+import java_cup.runtime.*;
+
+parser code {:
+                public parser(appLexer lex){
+                    super(lex);
+                }
+
+:}
+
+terminal RESERVATE_WORD,COLOR,ANIMATION,SHAPE,NUMBER,COMA,SUMA,RESTA,MULTI,DIV,PARENTECIS_APERTURA,PARENTECIS_CIERRE;
+non terminal s,r,ope,sum,res,mul,div;
+
+s ::= RESERVATE_WORD SHAPE PARENTECIS_APERTURA r COMA r COMA r COMA COLOR PARENTECIS_CIERRE
+    ;
+
+
+r ::= NUMBER
+    | PARENTECIS_APERTURA ope PARENTECIS_CIERRE
+    | sum
+    | ope
+    ;
+
+ope ::= NUMBER
+      | sum
+      | res
+      | mul
+      | div
+      ;
+
+sum ::= NUMBER SUMA NUMBER
+        ;
+
+res ::= NUMBER RESTA NUMBER
+        ;
+
+mul ::= NUMBER MULTI NUMBER
+        ;
+
+div ::= NUMBER DIV NUMBER
+        ;
