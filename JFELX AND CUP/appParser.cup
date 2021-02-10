@@ -1,26 +1,86 @@
+package com.mycompany.pruebaspractica1compiladores.Parcer;
+import com.mycompany.pruebaspractica1compiladores.Lexer.sym;
+import com.mycompany.pruebaspractica1compiladores.Lexer.appLexer;
 import java_cup.runtime.*;
 
+
 parser code {:
-                public parser(appLexer lex){
-                    super(lex);
-                }
+        private int numero =0;
+        private int termino=0;
+        private int fact=0;
+        private int exprecion=0;
+
+        public parser(appLexer lex){
+                super(lex);
+        }
 
 :}
 
-terminal RESERVATE_WORD,COLOR,ANIMATION,SHAPE,NUMBER,COMA,SUMA,RESTA,MULTI,DIV,PARENTECIS_APERTURA,PARENTECIS_CIERRE;
-non terminal s,expr,term,factor;
+terminal RESERVATE_WORD_GRAPHIC,RESERVATE_WORD_ANIMATION,RESERVATE_WORD_OBJECT,RESERVATE_WORD_REFERENCE,COLOR,ANIMATION,SHAPE_CIR,SHAPE_CUA,SHAPE_REC,SHAPE_LIN,SHAPE_POL,NUMBER,COMA,SUMA,RESTA,MULTI,DIV,PARENTECIS_APERTURA,PARENTECIS_CIERRE;
+non terminal s,t,y,shapeParams,expr,term,factor;
 
-s ::= RESERVATE_WORD SHAPE PARENTECIS_APERTURA expr COMA expr COMA expr COMA COLOR PARENTECIS_CIERRE
+s ::=   RESERVATE_WORD_GRAPHIC shapeParams
+    ;
+shapeParams ::= SHAPE_CIR PARENTECIS_APERTURA expr COMA expr COMA expr COMA COLOR PARENTECIS_CIERRE y
+              | SHAPE_CUA PARENTECIS_APERTURA expr COMA expr COMA expr COMA COLOR PARENTECIS_CIERRE y
+              | SHAPE_REC PARENTECIS_APERTURA expr COMA expr COMA expr COMA expr COMA COLOR PARENTECIS_CIERRE y 
+              | SHAPE_LIN PARENTECIS_APERTURA expr COMA expr COMA expr COMA expr COMA COLOR PARENTECIS_CIERRE y
+              | SHAPE_POL PARENTECIS_APERTURA expr COMA expr COMA expr COMA expr COMA expr COMA COLOR PARENTECIS_CIERRE y
+              ;
+
+y ::=   RESERVATE_WORD_ANIMATION RESERVATE_WORD_OBJECT RESERVATE_WORD_REFERENCE PARENTECIS_APERTURA expr COMA expr COMA ANIMATION PARENTECIS_CIERRE t
+    |   t
     ;
 
-expr ::=    expr SUMA term
-        |   expr RESTA term
-        |   term
+t ::=  s
+    |
+    ;
+
+expr ::=    expr SUMA term      {:
+                                        exprecion = exprecion + termino;
+                                        System.out.println("El resultado de la suma es: "+exprecion);
+                                        termino=0;
+                                :}
+        |   expr RESTA term     {:
+                                        exprecion = exprecion + termino;
+                                        System.out.println("El resultado de la resta es:"+exprecion);
+                                        termino = 0;
+                                :}
+        |   term                {:
+                                        exprecion = termino;
+                                        System.out.println("El termino es: "+termino);
+                                        termino=0;
+                                :}
         ;
-term ::=    term MULTI factor
-        |   term DIV factor
-        |   factor
+
+term ::=    term MULTI factor   {:
+                                        termino = termino * fact;
+                                        System.out.println("El resultado de la multiplicacion es: "+termino);
+                                        fact = 0;
+                                :}
+        |   term DIV factor     {:
+                                        termino = termino / fact;
+                                        System.out.println("El resultado de la divicion es: "+termino);
+                                        fact = 0;
+                                :}
+        |   factor              {:
+                                        System.out.println("El factor es:"+fact);
+                                        termino = fact;
+                                        fact =0;
+                                        numero =0;
+                                        
+                                :}
         ;
-factor ::=  NUMBER
-        |   PARENTECIS_APERTURA expr PARENTECIS_CIERRE
+
+factor ::=  NUMBER:e1                                           {:
+                                                                        numero = Integer.parseInt(e1.toString());
+                                                                        System.out.println("El numero es: "+numero);
+                                                                        fact = numero;
+                                                                :}
+        |   PARENTECIS_APERTURA expr PARENTECIS_CIERRE          {:
+                                                                        fact = exprecion;
+                                                                        System.out.println("El resultado de (exp): "+fact);
+                                                                        exprecion=0;
+                                                                        
+                                                                :}
         ;
