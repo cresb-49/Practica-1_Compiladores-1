@@ -2,6 +2,7 @@
 package com.mycompany.pruebaspractica1compiladores.Lexer;
 import java_cup.runtime.*;
 import static com.mycompany.pruebaspractica1compiladores.Lexer.sym.*;
+import com.mycompany.pruebaspractica1compiladores.Parcer.ParamsSymbol;
 
 %%
 
@@ -13,7 +14,10 @@ import static com.mycompany.pruebaspractica1compiladores.Lexer.sym.*;
 %line
 %column
 %public
-
+%{
+    private Symbol after_symbl = new Symbol(0);
+    private Symbol tmp_symbl = new Symbol(0);
+%}
 /*EXPRECIONES REGULARES*/
 LineTerminator = [\r|\n|\r\n]+
 WhiteSpace = [ \t\n]+
@@ -23,7 +27,7 @@ TypeAnimation = (linea|curva)
 TypeShape = (circulo|cuadrado|rectangulo|linea|poligono)
 Numbers = [0-9]+
 Words = [a-zA-Z]+
-
+    
 %%
 
 /*LEXIX RULES*/
@@ -33,85 +37,126 @@ Words = [a-zA-Z]+
             //System.out.println("Palabra recervada: "+yytext());
             switch (yytext()) {
                 case "graficar":
-                    return new Symbol (RESERVATE_WORD_GRAPHIC,yyline+1,yycolumn+1,yytext());
+                    tmp_symbl = new Symbol (RESERVATE_WORD_GRAPHIC,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+                    after_symbl = tmp_symbl;
+                    return tmp_symbl;
                 case "animar":
-                    return new Symbol (RESERVATE_WORD_ANIMATION,yyline+1,yycolumn+1,yytext());
+                    tmp_symbl = new Symbol (RESERVATE_WORD_ANIMATION,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+                    after_symbl = tmp_symbl;
+                    return tmp_symbl;
                 case "objeto":
-                    return new Symbol (RESERVATE_WORD_OBJECT,yyline+1,yycolumn+1,yytext());
+                    tmp_symbl = new Symbol (RESERVATE_WORD_OBJECT,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+                    after_symbl = tmp_symbl;
+                    return tmp_symbl;
                 case "anterior":
-                    return new Symbol (RESERVATE_WORD_REFERENCE,yyline+1,yycolumn+1,yytext());
+                    tmp_symbl = new Symbol (RESERVATE_WORD_REFERENCE,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+                    after_symbl = tmp_symbl;
+                    return tmp_symbl;
             }
             
         }
     {Colors}
         {   
             //System.out.println("Color de la figura: "+yytext());
-            return new Symbol (COLOR,yyline+1,yycolumn+1,yytext());
+            tmp_symbl = new Symbol (COLOR,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+            after_symbl = tmp_symbl;
+            return tmp_symbl;
         }
     {TypeAnimation}
         {   
             //System.out.println("Tipo de animacion: "+yytext());
-            return new Symbol (ANIMATION,yyline+1,yycolumn+1,yytext());
+            tmp_symbl = new Symbol (ANIMATION,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+            after_symbl = tmp_symbl;
+            return tmp_symbl;
         }
     {TypeShape}
         {   
             //System.out.println("Tipo de figura: "+yytext());
             switch (yytext()) {
                 case "circulo":
-                    return new Symbol (SHAPE_CIR,yyline+1,yycolumn+1,yytext());
+                    tmp_symbl = new Symbol (SHAPE_CIR,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+                    after_symbl = tmp_symbl;
+                    return tmp_symbl;
                 case "cuadrado":
-                    return new Symbol (SHAPE_CUA,yyline+1,yycolumn+1,yytext());
+                    tmp_symbl = new Symbol (SHAPE_CUA,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+                    after_symbl = tmp_symbl;
+                    return tmp_symbl;
                 case "rectangulo":
-                    return new Symbol (SHAPE_REC,yyline+1,yycolumn+1,yytext());
+                    tmp_symbl = new Symbol (SHAPE_REC,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+                    after_symbl = tmp_symbl;
+                    return tmp_symbl;
                 case "linea":
-                    return new Symbol (SHAPE_LIN,yyline+1,yycolumn+1,yytext());
+                    tmp_symbl = new Symbol (SHAPE_LIN,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+                    after_symbl = tmp_symbl;
+                    return tmp_symbl;
                 case "poligono":
-                    return new Symbol (SHAPE_POL,yyline+1,yycolumn+1,yytext());
+                    tmp_symbl = new Symbol (SHAPE_POL,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+                    after_symbl = tmp_symbl;
+                    return tmp_symbl;
             }
         }
     {Numbers}
         {
             //System.out.println("Numero encontrado: "+yytext());
-            return new Symbol (NUMBER,yyline+1,yycolumn+1,yytext());
+            tmp_symbl = new Symbol (NUMBER,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+            after_symbl = tmp_symbl;
+            return tmp_symbl;
         }
     ","
         {
             //System.out.println("Separador coma: "+yytext());
-            return new Symbol (COMA,yyline+1,yycolumn+1,yytext());
+            tmp_symbl = new Symbol (COMA,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+            after_symbl = tmp_symbl;
+            return tmp_symbl;
         }
     "+"
         {
             //System.out.println("Signo mas: "+yytext());
-            return new Symbol (SUMA,yyline+1,yycolumn+1,yytext());
+            tmp_symbl = new Symbol (SUMA,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+            after_symbl = tmp_symbl;
+            return tmp_symbl;
         }
     "-"
         {
             //System.out.println("Signo menos: "+yytext());
-            return new Symbol (RESTA,yyline+1,yycolumn+1,yytext());
+            tmp_symbl = new Symbol (RESTA,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+            after_symbl = tmp_symbl;
+            return tmp_symbl;
         }
     "*"
         {
             //System.out.println("Signo multiplicacion: "+yytext());
-            return new Symbol (MULTI,yyline+1,yycolumn+1,yytext());
+            tmp_symbl = new Symbol (MULTI,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+            after_symbl = tmp_symbl;
+            return tmp_symbl;
         }
     "/"
         {
            //System.out.println("Signo divicion: "+yytext());
-            return new Symbol (DIV,yyline+1,yycolumn+1,yytext());
+           tmp_symbl = new Symbol (DIV,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+           after_symbl = tmp_symbl;
+            return tmp_symbl;
         }
     "("
         {
             //System.out.println("Parentecis Apertura: "+yytext());
-            return new Symbol (PARENTECIS_APERTURA,yyline+1,yycolumn+1,yytext());
+            tmp_symbl = new Symbol (PARENTECIS_APERTURA,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+            after_symbl =tmp_symbl;
+            return tmp_symbl;
         }
     ")"
         {
             //System.out.println("Parentecis Cierre: "+yytext());
-            return new Symbol (PARENTECIS_CIERRE,yyline+1,yycolumn+1,yytext());
+            tmp_symbl = new Symbol (PARENTECIS_CIERRE,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+            after_symbl = tmp_symbl;
+            return tmp_symbl;
         }
     {Words}
         {
             System.out.println("\""+yytext()+"\" no es una intruccion del programa");
+            tmp_symbl = new Symbol (ERROR,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+            after_symbl = tmp_symbl;
+            return tmp_symbl;
         }
     {LineTerminator}
         {
