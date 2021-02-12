@@ -20,7 +20,7 @@ import com.mycompany.pruebaspractica1compiladores.Parcer.ParamsSymbol;
     private Symbol after_symbl = new Symbol(0);
     private Symbol tmp_symbl = new Symbol(0);
 
-    private List<String> errorsList = new ArrayList<>();
+    private List<String> errorsList;
 %}
 /*EXPRECIONES REGULARES*/
 LineTerminator = [\r|\n|\r\n]+
@@ -166,7 +166,7 @@ Words = [a-zA-Z]+
         }
     {Words}
         {
-            error(yytext());
+            System.out.println("\""+yytext()+"\" no es una intruccion del programa");
             tmp_symbl = new Symbol (ERROR,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
             after_symbl = tmp_symbl;
             return tmp_symbl;
@@ -180,9 +180,4 @@ Words = [a-zA-Z]+
             /*Do nothing*/
         }
 }
-[^]     {
-            error(yytext());
-            tmp_symbl = new Symbol (ERROR,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
-            after_symbl = tmp_symbl;
-            return tmp_symbl;
-        }
+[^] {System.out.println("Caracter invalido en el lenguaje: "+yytext()+" Linea: "+(yyline+1)+" Columna: "+(yycolumn+1));}

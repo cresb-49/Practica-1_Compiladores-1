@@ -5,6 +5,8 @@
 /*PRIMER SECCION, CODIGO DE USUARIO*/
 package com.mycompany.pruebaspractica1compiladores.Lexer;
 import java_cup.runtime.*;
+import java.util.ArrayList;
+import java.util.List;
 import static com.mycompany.pruebaspractica1compiladores.Lexer.sym.*;
 import com.mycompany.pruebaspractica1compiladores.Parcer.ParamsSymbol;
 
@@ -99,8 +101,8 @@ public class appLexer implements java_cup.runtime.Scanner {
 
   private static final String ZZ_ACTION_PACKED_0 =
     "\1\0\1\1\3\2\1\3\1\4\1\5\1\6\1\7"+
-    "\1\10\1\11\1\12\60\13\1\14\16\13\1\15\6\13"+
-    "\1\16\6\13\1\17";
+    "\1\10\1\11\1\12\60\1\1\13\16\1\1\14\6\1"+
+    "\1\15\6\1\1\16";
 
   private static int [] zzUnpackAction() {
     int [] result = new int[91];
@@ -336,6 +338,15 @@ public class appLexer implements java_cup.runtime.Scanner {
   /* user code: */
     private Symbol after_symbl = new Symbol(0);
     private Symbol tmp_symbl = new Symbol(0);
+
+    private List<String> errorsList = new ArrayList<>();
+    private void error(String lexeme) {
+        System.out.printf("Error Lexico en el Texto: %s  linea %d,  columna %d. \n", lexeme, yyline + 1, yycolumn + 1);
+            errorsList.add(String.format("Error Lexico en el Texto: %s  linea %d, columna %d. Corrige e intenta de nuevo.", lexeme, yyline + 1, yycolumn + 1));
+    }
+    public List<String> getErrorsList() {
+        return errorsList;
+    }
 
 
   /**
@@ -744,15 +755,18 @@ public class appLexer implements java_cup.runtime.Scanner {
       else {
         switch (zzAction < 0 ? zzAction : ZZ_ACTION[zzAction]) {
           case 1:
-            { System.out.println("Caracter invalido en el lenguaje: "+yytext()+" Linea: "+(yyline+1)+" Columna: "+(yycolumn+1));
+            { error(yytext());
+            tmp_symbl = new Symbol (ERROR,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+            after_symbl = tmp_symbl;
+            return tmp_symbl;
             }
             // fall through
-          case 16: break;
+          case 15: break;
           case 2:
             { /*Do nothing*/
             }
             // fall through
-          case 17: break;
+          case 16: break;
           case 3:
             { //System.out.println("Parentecis Apertura: "+yytext());
             tmp_symbl = new Symbol (PARENTECIS_APERTURA,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
@@ -760,7 +774,7 @@ public class appLexer implements java_cup.runtime.Scanner {
             return tmp_symbl;
             }
             // fall through
-          case 18: break;
+          case 17: break;
           case 4:
             { //System.out.println("Parentecis Cierre: "+yytext());
             tmp_symbl = new Symbol (PARENTECIS_CIERRE,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
@@ -768,7 +782,7 @@ public class appLexer implements java_cup.runtime.Scanner {
             return tmp_symbl;
             }
             // fall through
-          case 19: break;
+          case 18: break;
           case 5:
             { //System.out.println("Signo multiplicacion: "+yytext());
             tmp_symbl = new Symbol (MULTI,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
@@ -776,7 +790,7 @@ public class appLexer implements java_cup.runtime.Scanner {
             return tmp_symbl;
             }
             // fall through
-          case 20: break;
+          case 19: break;
           case 6:
             { //System.out.println("Signo mas: "+yytext());
             tmp_symbl = new Symbol (SUMA,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
@@ -784,7 +798,7 @@ public class appLexer implements java_cup.runtime.Scanner {
             return tmp_symbl;
             }
             // fall through
-          case 21: break;
+          case 20: break;
           case 7:
             { //System.out.println("Separador coma: "+yytext());
             tmp_symbl = new Symbol (COMA,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
@@ -792,7 +806,7 @@ public class appLexer implements java_cup.runtime.Scanner {
             return tmp_symbl;
             }
             // fall through
-          case 22: break;
+          case 21: break;
           case 8:
             { //System.out.println("Signo menos: "+yytext());
             tmp_symbl = new Symbol (RESTA,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
@@ -800,7 +814,7 @@ public class appLexer implements java_cup.runtime.Scanner {
             return tmp_symbl;
             }
             // fall through
-          case 23: break;
+          case 22: break;
           case 9:
             { //System.out.println("Signo divicion: "+yytext());
            tmp_symbl = new Symbol (DIV,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
@@ -808,7 +822,7 @@ public class appLexer implements java_cup.runtime.Scanner {
             return tmp_symbl;
             }
             // fall through
-          case 24: break;
+          case 23: break;
           case 10:
             { //System.out.println("Numero encontrado: "+yytext());
             tmp_symbl = new Symbol (NUMBER,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
@@ -816,32 +830,24 @@ public class appLexer implements java_cup.runtime.Scanner {
             return tmp_symbl;
             }
             // fall through
-          case 25: break;
+          case 24: break;
           case 11:
-            { System.out.println("\""+yytext()+"\" no es una intruccion del programa");
-            tmp_symbl = new Symbol (ERROR,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
-            after_symbl = tmp_symbl;
-            return tmp_symbl;
-            }
-            // fall through
-          case 26: break;
-          case 12:
             { //System.out.println("Color de la figura: "+yytext());
             tmp_symbl = new Symbol (COLOR,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
             after_symbl = tmp_symbl;
             return tmp_symbl;
             }
             // fall through
-          case 27: break;
-          case 13:
+          case 25: break;
+          case 12:
             { //System.out.println("Tipo de animacion: "+yytext());
             tmp_symbl = new Symbol (ANIMATION,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
             after_symbl = tmp_symbl;
             return tmp_symbl;
             }
             // fall through
-          case 28: break;
-          case 14:
+          case 26: break;
+          case 13:
             { //System.out.println("Palabra recervada: "+yytext());
             switch (yytext()) {
                 case "graficar":
@@ -863,8 +869,8 @@ public class appLexer implements java_cup.runtime.Scanner {
             }
             }
             // fall through
-          case 29: break;
-          case 15:
+          case 27: break;
+          case 14:
             { //System.out.println("Tipo de figura: "+yytext());
             switch (yytext()) {
                 case "circulo":
@@ -890,7 +896,7 @@ public class appLexer implements java_cup.runtime.Scanner {
             }
             }
             // fall through
-          case 30: break;
+          case 28: break;
           default:
             zzScanError(ZZ_NO_MATCH);
         }

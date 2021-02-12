@@ -35,6 +35,9 @@ parser code {:
                     System.out.println("Simbolo esperado: "+symbl_name_from_id(n));
                 }
         }
+        protected int error_sync_size() {
+		return 1;
+	}
 
 :}
 
@@ -44,6 +47,7 @@ non terminal s,t,y,var,shapeParams,expr,term,factor;
 s ::=   RESERVATE_WORD_GRAPHIC shapeParams {:System.out.println("Inicio de produccion");:}
     |   error
     ;
+    
 shapeParams ::= SHAPE_CIR:f PARENTECIS_APERTURA var COMA var COMA var COMA COLOR:e1 PARENTECIS_CIERRE y   {:System.out.println("Figura generada: "+((ParamsSymbol)f).lexema+" Color: "+((ParamsSymbol)e1).lexema);:}
               | SHAPE_CUA:f PARENTECIS_APERTURA var COMA var COMA var COMA COLOR:e1 PARENTECIS_CIERRE y   {:System.out.println("Figura generada: "+((ParamsSymbol)f).lexema+" Color: "+((ParamsSymbol)e1).lexema);:}
               | SHAPE_REC:f PARENTECIS_APERTURA var COMA var COMA var COMA var COMA COLOR:e1 PARENTECIS_CIERRE y {:System.out.println("Figura generada: "+((ParamsSymbol)f).lexema+" Color: "+((ParamsSymbol)e1).lexema);:}

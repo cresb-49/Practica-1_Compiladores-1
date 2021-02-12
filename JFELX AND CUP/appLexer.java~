@@ -5,6 +5,8 @@
 /*PRIMER SECCION, CODIGO DE USUARIO*/
 package com.mycompany.pruebaspractica1compiladores.Lexer;
 import java_cup.runtime.*;
+import java.util.ArrayList;
+import java.util.List;
 import static com.mycompany.pruebaspractica1compiladores.Lexer.sym.*;
 import com.mycompany.pruebaspractica1compiladores.Parcer.ParamsSymbol;
 
@@ -336,6 +338,15 @@ public class appLexer implements java_cup.runtime.Scanner {
   /* user code: */
     private Symbol after_symbl = new Symbol(0);
     private Symbol tmp_symbl = new Symbol(0);
+
+    private List<String> errorsList;
+    private void error(String lexeme) {
+        System.out.printf("Error Lexico en el Texto: %s  linea %d,  columna %d. \n", lexeme, yyline + 1, yycolumn + 1);
+            errorsList.add(String.format("Error Lexico en el Texto: %s  linea %d, columna %d. Corrige e intenta de nuevo.", lexeme, yyline + 1, yycolumn + 1));
+    }
+    public List<String> getErrorsList() {
+        return errorsList;
+    }
 
 
   /**
@@ -818,7 +829,11 @@ public class appLexer implements java_cup.runtime.Scanner {
             // fall through
           case 25: break;
           case 11:
-            { System.out.println("\""+yytext()+"\" no es una intruccion del programa");
+            { error(yytext());
+            //System.out.println("\""+yytext()+"\" no es una intruccion del programa");
+            tmp_symbl = new Symbol (ERROR,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+            after_symbl = tmp_symbl;
+            return tmp_symbl;
             }
             // fall through
           case 26: break;
@@ -843,7 +858,6 @@ public class appLexer implements java_cup.runtime.Scanner {
             switch (yytext()) {
                 case "graficar":
                     tmp_symbl = new Symbol (RESERVATE_WORD_GRAPHIC,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
-                    System.out.println("Simbolo siguinte: "+next_token());
                     after_symbl = tmp_symbl;
                     return tmp_symbl;
                 case "animar":

@@ -20,10 +20,10 @@ import java.util.logging.Logger;
 public class main{
     public static void main (String[] args) {
         String cadenas = 
-                "volar circulo ( 25 + 12, 25, 15/3, rojo)\n" +
+                "graficar circulo ( 25 + 12, 25, 15/3, rojo)\n" +
                 "graficar cuadrado ( 12*3, 15+1, (15-3) / 4, verde)\n" +
-                "graficar rectangulo ( 12 * 3 + 2, 15, 4 / 4,10, negro)\n" +
-                "graficar poligono ( 12, a, 12,7/7,8,amarillo)"
+                "graficar rectangulo ( 12 * 6 + 2, 15, 4 / 4,10, negro)\n" +
+                "graficar poligono ( 12, 8, 12,7/7,8,amarillo)"
                 ;
         
         

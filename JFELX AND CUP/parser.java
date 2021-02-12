@@ -235,6 +235,9 @@ public class parser extends java_cup.runtime.lr_parser {
                     System.out.println("Simbolo esperado: "+symbl_name_from_id(n));
                 }
         }
+        protected int error_sync_size() {
+		return 1;
+	}
 
 
 
