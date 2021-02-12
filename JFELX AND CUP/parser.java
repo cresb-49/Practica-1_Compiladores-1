@@ -9,6 +9,8 @@ import com.mycompany.pruebaspractica1compiladores.Lexer.sym;
 import com.mycompany.pruebaspractica1compiladores.Lexer.appLexer;
 import com.mycompany.pruebaspractica1compiladores.Instructions.Settings;
 import java_cup.runtime.*;
+import java.util.ArrayList;
+import java.util.List;
 import java_cup.runtime.XMLElement;
 
 /** CUP v0.11b 20160615 (GIT 4ac7450) generated parser.
@@ -212,6 +214,7 @@ public class parser extends java_cup.runtime.lr_parser {
         private int exprecion=0;
         private boolean bandera = true;
         private Settings parametrosSoft = new Settings();
+        private List<String> errorsList = new ArrayList();
 
         public parser(appLexer lex){
                 super(lex);
@@ -228,15 +231,28 @@ public class parser extends java_cup.runtime.lr_parser {
                 System.out.println("reportfatal");
         }
         public void syntax_error(Symbol cur_token){
-                ParamsSymbol symboloError = (ParamsSymbol)cur_token.value;
-                System.out.println("Error de Sintaxis \""+symboloError.lexema+"\" Linea: "+symboloError.line+" Columna: "+symboloError.column);
-                System.out.println("Simbolo anterior: "+symbl_name_from_id(cur_token.left));
-                for(Integer n:expected_token_ids()){
-                    System.out.println("Simbolo esperado: "+symbl_name_from_id(n));
+                ParamsSymbol symboloError = (ParamsSymbol) cur_token.value;
+                String err = String.format("Error de Sintaxis \"" + symboloError.lexema + "\" Linea: " + symboloError.line + " Columna: " + symboloError.column);
+                err = err + "\n";
+                err = err + "Se esperaba: ";
+                for (int i = 0; i < expected_token_ids().size(); i++) {
+                        if (!espera.simboloEsperado(expected_token_ids().get(i)).equals("")) {
+                                err = err + espera.simboloEsperado(expected_token_ids().get(i));
+                                if (i < (expected_token_ids().size() - 1)) {
+                                        err = err + " ó ";
+                                }
+                        }
                 }
+                errorsList.add(err);
+                System.out.println(err);
         }
         protected int error_sync_size() {
 		return 1;
+	}
+
+        public List<String> getErrorsList(){
+	        return errorsList
+	        ;
 	}
 
 
