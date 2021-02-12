@@ -17,16 +17,15 @@ import java.util.logging.Logger;
  *
  * @author carlo
  */
-public class main{
-    public static void main (String[] args) {
-        String cadenas = 
-                "graficar circulo ( a + 12, 25, 15/3, rojo)\n" +
-                "graficar cuadrado ( 12*3, 15+1, (15-3) / 4, verde)\n" +
-                "graficar rectangulo ( 12 * 6 + 2, 15, 4 / 4,10, negro)\n" +
-                "graficar poligono ( 12, 8, 12,7/7,8,amarillo)"
-                ;
-        
-        
+public class main {
+
+    public static void main(String[] args) {
+        String cadenas
+                = "graficar circulo ( a + 12, 25, 15/3, rojo)\n"
+                + "graficar cuadrado ( 12*3, 15+1, (15-3) / 4, verde)\n"
+                + "graficar rectangulo ( 12 * 6 + 2, 15, 4 / 4,10, negro)\n"
+                + "graficar poligono ( 12, 8, 12,7/7,8,amarillo)";
+
         /*String cadenas = 
                 "graficar circulo ( (3+2)*2, 2, 3, rojo)"
                 ;*/
@@ -34,13 +33,30 @@ public class main{
         parser appParser = new parser(lex);
         try {
             appParser.parse();
-            System.out.println("Numeros Recuperados: "+appParser.respuesta().getNums().toString());
-            
+
+            if (lex.getErrorsList().isEmpty() && appParser.getErrorsList().isEmpty()) {
+                System.out.println("----------- RESULTADOS DE LECTURA --------------");
+                System.out.println("Numeros Recuperados: " + appParser.respuesta().getNums().toString());
+                System.out.println("Sentencias Recuperadas: ");
+                for (Object arg : appParser.getSentencias()) {
+                    System.err.println(arg.toString());
+                }
+            } else {
+                System.out.println("----------- SE ENCONTRARON ERRORES --------------");
+                System.out.println("----------- ERRORES LEXICOS --------------");
+                for (String err : lex.getErrorsList()) {
+                    System.err.println(err);
+                }
+                System.out.println("----------- ERRORES DE SINTAXIS --------------");
+                for (String err : appParser.getErrorsList()) {
+                    System.err.println(err);
+                }
+            }
+
         } catch (Exception ex) {
-            System.out.println("Error irrecuperable, "+ex.getMessage());
+            System.out.println("Error irrecuperable, " + ex.getMessage());
             ex.printStackTrace();
         }
-                
-        
+
     }
 }

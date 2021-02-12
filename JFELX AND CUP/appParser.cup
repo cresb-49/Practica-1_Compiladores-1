@@ -2,6 +2,7 @@ package com.mycompany.pruebaspractica1compiladores.Parcer;
 import com.mycompany.pruebaspractica1compiladores.Lexer.sym;
 import com.mycompany.pruebaspractica1compiladores.Lexer.appLexer;
 import com.mycompany.pruebaspractica1compiladores.Instructions.Settings;
+import com.mycompany.pruebaspractica1compiladores.Instructions.*;
 import java_cup.runtime.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +17,7 @@ parser code {:
         private Settings parametrosSoft = new Settings();
         private reporteError espera = new reporteError();
         private List<String> errorsList = new ArrayList();
+        private List<Object> sentencias = new ArrayList();
 
         public parser(appLexer lex){
                 super(lex);
@@ -50,7 +52,9 @@ parser code {:
         protected int error_sync_size() {
 		return 1;
 	}
-
+        public List<Object> getSentencias() {
+                return sentencias;
+        }
         public List<String> getErrorsList(){
 	        return errorsList
 	        ;
@@ -65,15 +69,33 @@ s ::=   RESERVATE_WORD_GRAPHIC shapeParams {:System.out.println("Inicio de produ
     |   error
     ;
     
-shapeParams ::= SHAPE_CIR:f PARENTECIS_APERTURA var COMA var COMA var COMA COLOR:e1 PARENTECIS_CIERRE y   {:System.out.println("Figura generada: "+((ParamsSymbol)f).lexema+" Color: "+((ParamsSymbol)e1).lexema);:}
-              | SHAPE_CUA:f PARENTECIS_APERTURA var COMA var COMA var COMA COLOR:e1 PARENTECIS_CIERRE y   {:System.out.println("Figura generada: "+((ParamsSymbol)f).lexema+" Color: "+((ParamsSymbol)e1).lexema);:}
-              | SHAPE_REC:f PARENTECIS_APERTURA var COMA var COMA var COMA var COMA COLOR:e1 PARENTECIS_CIERRE y {:System.out.println("Figura generada: "+((ParamsSymbol)f).lexema+" Color: "+((ParamsSymbol)e1).lexema);:}
-              | SHAPE_LIN:f PARENTECIS_APERTURA var COMA var COMA var COMA var COMA COLOR:e1 PARENTECIS_CIERRE y {:System.out.println("Figura generada: "+((ParamsSymbol)f).lexema+" Color: "+((ParamsSymbol)e1).lexema);:}
-              | SHAPE_POL:f PARENTECIS_APERTURA var COMA var COMA var COMA var COMA var COMA COLOR:e1 PARENTECIS_CIERRE y       {:System.out.println("Figura generada: "+((ParamsSymbol)f).lexema+" Color: "+((ParamsSymbol)e1).lexema);:}
+shapeParams ::= SHAPE_CIR:f PARENTECIS_APERTURA var COMA var COMA var COMA COLOR:e1 PARENTECIS_CIERRE y         {:
+                                                                                                                        System.out.println("Figura generada: "+((ParamsSymbol)f).lexema+" Color: "+((ParamsSymbol)e1).lexema);
+                                                                                                                        sentencias.add(new Circulo(0, 0, 0,((ParamsSymbol)e1).lexema));
+                                                                                                                :}
+              | SHAPE_CUA:f PARENTECIS_APERTURA var COMA var COMA var COMA COLOR:e1 PARENTECIS_CIERRE y {:
+                                                                                                                System.out.println("Figura generada: "+((ParamsSymbol)f).lexema+" Color: "+((ParamsSymbol)e1).lexema);
+                                                                                                                sentencias.add(new Cuadrado(0, 0, 0, ((ParamsSymbol)e1).lexema));
+                                                                                                        :}
+              | SHAPE_REC:f PARENTECIS_APERTURA var COMA var COMA var COMA var COMA COLOR:e1 PARENTECIS_CIERRE y        {:
+                                                                                                                                System.out.println("Figura generada: "+((ParamsSymbol)f).lexema+" Color: "+((ParamsSymbol)e1).lexema);
+                                                                                                                                sentencias.add(new Rectangulo(0, 0, 0, 0, ((ParamsSymbol)e1).lexema));
+                                                                                                                        :}
+              | SHAPE_LIN:f PARENTECIS_APERTURA var COMA var COMA var COMA var COMA COLOR:e1 PARENTECIS_CIERRE y        {:
+                                                                                                                                System.out.println("Figura generada: "+((ParamsSymbol)f).lexema+" Color: "+((ParamsSymbol)e1).lexema);
+                                                                                                                                sentencias.add(new Linea(0, 0, 0, 0, ((ParamsSymbol)e1).lexema));
+                                                                                                                        :}
+              | SHAPE_POL:f PARENTECIS_APERTURA var COMA var COMA var COMA var COMA var COMA COLOR:e1 PARENTECIS_CIERRE y       {:
+                                                                                                                                        System.out.println("Figura generada: "+((ParamsSymbol)f).lexema+" Color: "+((ParamsSymbol)e1).lexema);
+                                                                                                                                        sentencias.add(new Poligono(0, 0, 0, 0, 0, ((ParamsSymbol)e1).lexema));
+                                                                                                                                :}
               | error
               ;
 
-y ::=   RESERVATE_WORD_ANIMATION RESERVATE_WORD_OBJECT RESERVATE_WORD_REFERENCE PARENTECIS_APERTURA expr COMA expr COMA ANIMATION PARENTECIS_CIERRE t
+y ::=   RESERVATE_WORD_ANIMATION RESERVATE_WORD_OBJECT RESERVATE_WORD_REFERENCE PARENTECIS_APERTURA expr COMA expr COMA ANIMATION:e1 PARENTECIS_CIERRE t        {:
+                                                                                                                                                                        System.out.println("Animacion de figura");
+                                                                                                                                                                        sentencias.add(new Animar(0, 0, ((ParamsSymbol)e1).lexema));
+                                                                                                                                                                :}
     |   t
     ;
 

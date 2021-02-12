@@ -8,6 +8,7 @@ package com.mycompany.pruebaspractica1compiladores.Parcer;
 import com.mycompany.pruebaspractica1compiladores.Lexer.sym;
 import com.mycompany.pruebaspractica1compiladores.Lexer.appLexer;
 import com.mycompany.pruebaspractica1compiladores.Instructions.Settings;
+import com.mycompany.pruebaspractica1compiladores.Instructions.*;
 import java_cup.runtime.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -216,6 +217,7 @@ public class parser extends java_cup.runtime.lr_parser {
         private Settings parametrosSoft = new Settings();
         private reporteError espera = new reporteError();
         private List<String> errorsList = new ArrayList();
+        private List<Object> sentencias = new ArrayList();
 
         public parser(appLexer lex){
                 super(lex);
@@ -250,7 +252,9 @@ public class parser extends java_cup.runtime.lr_parser {
         protected int error_sync_size() {
 		return 1;
 	}
-
+        public List<Object> getSentencias() {
+                return sentencias;
+        }
         public List<String> getErrorsList(){
 	        return errorsList
 	        ;
@@ -324,7 +328,10 @@ class CUP$parser$actions {
 		int e1left = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-2)).left;
 		int e1right = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-2)).right;
 		Object e1 = (Object)((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top-2)).value;
-		System.out.println("Figura generada: "+((ParamsSymbol)f).lexema+" Color: "+((ParamsSymbol)e1).lexema);
+		
+                                                                                                                        System.out.println("Figura generada: "+((ParamsSymbol)f).lexema+" Color: "+((ParamsSymbol)e1).lexema);
+                                                                                                                        sentencias.add(new Circulo(0, 0, 0,((ParamsSymbol)e1).lexema));
+                                                                                                                
               CUP$parser$result = parser.getSymbolFactory().newSymbol("shapeParams",4, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-10)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -339,7 +346,10 @@ class CUP$parser$actions {
 		int e1left = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-2)).left;
 		int e1right = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-2)).right;
 		Object e1 = (Object)((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top-2)).value;
-		System.out.println("Figura generada: "+((ParamsSymbol)f).lexema+" Color: "+((ParamsSymbol)e1).lexema);
+		
+                                                                                                                System.out.println("Figura generada: "+((ParamsSymbol)f).lexema+" Color: "+((ParamsSymbol)e1).lexema);
+                                                                                                                sentencias.add(new Cuadrado(0, 0, 0, ((ParamsSymbol)e1).lexema));
+                                                                                                        
               CUP$parser$result = parser.getSymbolFactory().newSymbol("shapeParams",4, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-10)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -354,7 +364,10 @@ class CUP$parser$actions {
 		int e1left = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-2)).left;
 		int e1right = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-2)).right;
 		Object e1 = (Object)((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top-2)).value;
-		System.out.println("Figura generada: "+((ParamsSymbol)f).lexema+" Color: "+((ParamsSymbol)e1).lexema);
+		
+                                                                                                                                System.out.println("Figura generada: "+((ParamsSymbol)f).lexema+" Color: "+((ParamsSymbol)e1).lexema);
+                                                                                                                                sentencias.add(new Rectangulo(0, 0, 0, 0, ((ParamsSymbol)e1).lexema));
+                                                                                                                        
               CUP$parser$result = parser.getSymbolFactory().newSymbol("shapeParams",4, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-12)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -369,7 +382,10 @@ class CUP$parser$actions {
 		int e1left = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-2)).left;
 		int e1right = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-2)).right;
 		Object e1 = (Object)((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top-2)).value;
-		System.out.println("Figura generada: "+((ParamsSymbol)f).lexema+" Color: "+((ParamsSymbol)e1).lexema);
+		
+                                                                                                                                System.out.println("Figura generada: "+((ParamsSymbol)f).lexema+" Color: "+((ParamsSymbol)e1).lexema);
+                                                                                                                                sentencias.add(new Linea(0, 0, 0, 0, ((ParamsSymbol)e1).lexema));
+                                                                                                                        
               CUP$parser$result = parser.getSymbolFactory().newSymbol("shapeParams",4, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-12)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -384,7 +400,10 @@ class CUP$parser$actions {
 		int e1left = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-2)).left;
 		int e1right = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-2)).right;
 		Object e1 = (Object)((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top-2)).value;
-		System.out.println("Figura generada: "+((ParamsSymbol)f).lexema+" Color: "+((ParamsSymbol)e1).lexema);
+		
+                                                                                                                                        System.out.println("Figura generada: "+((ParamsSymbol)f).lexema+" Color: "+((ParamsSymbol)e1).lexema);
+                                                                                                                                        sentencias.add(new Poligono(0, 0, 0, 0, 0, ((ParamsSymbol)e1).lexema));
+                                                                                                                                
               CUP$parser$result = parser.getSymbolFactory().newSymbol("shapeParams",4, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-14)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -402,7 +421,13 @@ class CUP$parser$actions {
           case 9: // y ::= RESERVATE_WORD_ANIMATION RESERVATE_WORD_OBJECT RESERVATE_WORD_REFERENCE PARENTECIS_APERTURA expr COMA expr COMA ANIMATION PARENTECIS_CIERRE t 
             {
               Object RESULT =null;
-
+		int e1left = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-2)).left;
+		int e1right = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-2)).right;
+		Object e1 = (Object)((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top-2)).value;
+		
+                                                                                                                                                                        System.out.println("Animacion de figura");
+                                                                                                                                                                        sentencias.add(new Animar(0, 0, ((ParamsSymbol)e1).lexema));
+                                                                                                                                                                
               CUP$parser$result = parser.getSymbolFactory().newSymbol("y",2, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-10)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
