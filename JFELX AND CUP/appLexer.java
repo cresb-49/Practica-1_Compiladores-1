@@ -341,7 +341,7 @@ public class appLexer implements java_cup.runtime.Scanner {
 
     private List<String> errorsList = new ArrayList<>();
     private void error(String lexeme) {
-        System.out.printf("Error Lexico en el Texto: %s  linea %d,  columna %d. \n", lexeme, yyline + 1, yycolumn + 1);
+        System.out.printf("Error lexico \"%s\" linea %d,  columna %d. \n", lexeme, yyline + 1, yycolumn + 1);
             errorsList.add(String.format("Error Lexico en el Texto: %s  linea %d, columna %d. Corrige e intenta de nuevo.", lexeme, yyline + 1, yycolumn + 1));
     }
     public List<String> getErrorsList() {
