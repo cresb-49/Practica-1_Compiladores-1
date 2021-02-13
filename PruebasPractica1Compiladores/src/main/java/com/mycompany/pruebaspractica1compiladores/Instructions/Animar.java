@@ -46,6 +46,11 @@ public class Animar {
     public void setTypeAnimation(String typeAnimation) {
         this.typeAnimation = typeAnimation;
     }
+
+    @Override
+    public String toString() {
+        return "Animar{" + "destinox=" + destinox + ", destinoy=" + destinoy + ", typeAnimation=" + typeAnimation + '}';
+    }
     
     
 }

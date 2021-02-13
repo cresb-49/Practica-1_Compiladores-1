@@ -7,6 +7,7 @@ package com.mycompany.pruebaspractica1compiladores;
 
 import com.mycompany.pruebaspractica1compiladores.Instructions.Settings;
 import com.mycompany.pruebaspractica1compiladores.Lexer.appLexer;
+import com.mycompany.pruebaspractica1compiladores.Parcer.Sincronizar;
 import com.mycompany.pruebaspractica1compiladores.Parcer.parser;
 import java.io.BufferedReader;
 import java.io.StringReader;
@@ -21,7 +22,9 @@ public class main {
 
     public static void main(String[] args) {
         String cadenas
-                = "graficar circulo ( a + 12, 25, 15/3, rojo)\n"
+                = "graficar circulo ( 1 + 12, 25, 15/3, rojo)\n"
+                + "graficar linea ( 12 * 3 + 2, 15, 4 / 4, 50 * 1, amarillo)\n"
+                + "animar objeto anterior(4,2,linea)\n"
                 + "graficar cuadrado ( 12*3, 15+1, (15-3) / 4, verde)\n"
                 + "graficar rectangulo ( 12 * 6 + 2, 15, 4 / 4,10, negro)\n"
                 + "graficar poligono ( 12, 8, 12,7/7,8,amarillo)";
@@ -35,12 +38,15 @@ public class main {
             appParser.parse();
 
             if (lex.getErrorsList().isEmpty() && appParser.getErrorsList().isEmpty()) {
+                Sincronizar syn = new Sincronizar();
                 System.out.println("----------- RESULTADOS DE LECTURA --------------");
                 System.out.println("Numeros Recuperados: " + appParser.respuesta().getNums().toString());
                 System.out.println("Sentencias Recuperadas: ");
-                for (Object arg : appParser.getSentencias()) {
+                for (Object arg : syn.asignar(appParser.respuesta().getNums(), appParser.getSentencias())) {
                     System.err.println(arg.toString());
                 }
+                //syn.asignar(appParser.respuesta().getNums(), appParser.getSentencias());
+                
             } else {
                 System.out.println("----------- SE ENCONTRARON ERRORES --------------");
                 System.out.println("----------- ERRORES LEXICOS --------------");

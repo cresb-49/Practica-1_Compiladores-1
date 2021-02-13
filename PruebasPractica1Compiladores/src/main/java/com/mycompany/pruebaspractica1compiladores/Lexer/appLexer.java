@@ -841,7 +841,20 @@ public class appLexer implements java_cup.runtime.Scanner {
           case 25: break;
           case 12:
             { //System.out.println("Tipo de animacion: "+yytext());
-            tmp_symbl = new Symbol (ANIMATION,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+                if(yytext().equals("linea")){
+                    if(after_symbl.value != null){
+                        if(after_symbl.sym==COMA){
+                            tmp_symbl = new Symbol (ANIMATION,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+                        }
+                        else{
+                            tmp_symbl = new Symbol (SHAPE_LIN,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+                        }
+                    }else{
+                        tmp_symbl = new Symbol (ANIMATION,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+                    }
+                }else{
+                    tmp_symbl = new Symbol (ANIMATION,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+                }
             after_symbl = tmp_symbl;
             return tmp_symbl;
             }
