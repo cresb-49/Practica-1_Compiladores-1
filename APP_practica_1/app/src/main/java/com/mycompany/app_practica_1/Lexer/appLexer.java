@@ -3,12 +3,12 @@
 // source: appLexer.jflex
 
 /*PRIMER SECCION, CODIGO DE USUARIO*/
-package com.mycompany.pruebaspractica1compiladores.Lexer;
+package com.mycompany.app_practica_1.Lexer;
 import java_cup.runtime.*;
 import java.util.ArrayList;
 import java.util.List;
-import static com.mycompany.pruebaspractica1compiladores.Lexer.sym.*;
-import com.mycompany.pruebaspractica1compiladores.Parcer.ParamsSymbol;
+import static com.mycompany.app_practica_1.Lexer.sym.*;
+import com.mycompany.app_practica_1.Parser.ParamsSymbol;
 
 
 // See https://github.com/jflex-de/jflex/issues/222

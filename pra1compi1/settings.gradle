@@ -1,3 +1,0 @@
-include ':java-cup-11b-runtime'
-include ':app'
-rootProject.name = "Practica1Compiladores"

@@ -21,6 +21,33 @@ import com.mycompany.pruebaspractica1compiladores.Parcer.ParamsSymbol;
     private Symbol tmp_symbl = new Symbol(0);
 
     private List<String> errorsList = new ArrayList<>();
+
+
+    private List<Symbol> countMas = new ArrayList();
+    private List<Symbol> countMenos = new ArrayList();
+    private List<Symbol> countMulti = new ArrayList();
+    private List<Symbol> countDiv = new ArrayList();
+    
+    private int shapeCirculo =0;
+    private int shapeCuadrado =0;
+    private int shapeRect =0 ;
+    private int shapeLinea=0;
+    private int shapePoligono=0;
+
+    private int animCurva=0;
+    private int animLinea=0;
+
+    private int countAzul=0;
+    private int countRojo=0;
+    private int countVerde=0;
+    private int countAmarillo=0;
+    private int countNaranja=0;
+    private int countMorado=0;
+    private int countCafe=0;
+    private int countNegro=0;
+    
+
+
 %}
 /*EXPRECIONES REGULARES*/
 LineTerminator = [\r|\n|\r\n]+
@@ -34,10 +61,85 @@ Words = [a-zA-Z]+
 %{
     private void error(String lexeme) {
         System.out.printf("Error lexico \"%s\" linea %d,  columna %d. \n", lexeme, yyline + 1, yycolumn + 1);
-            errorsList.add(String.format("Error Lexico en el Texto: %s  linea %d, columna %d. Corrige e intenta de nuevo.", lexeme, yyline + 1, yycolumn + 1));
+        errorsList.add(String.format("Error Lexico en el Texto: %s  linea %d, columna %d. Corrige e intenta de nuevo.", lexeme, yyline + 1, yycolumn + 1));
     }
     public List<String> getErrorsList() {
         return errorsList;
+    }
+    public List<Symbol> getCountMas() {
+        return countMas;
+    }
+
+    public List<Symbol> getCountMenos() {
+        return countMenos;
+    }
+
+    public List<Symbol> getCountMulti() {
+        return countMulti;
+    }
+
+    public List<Symbol> getCountDiv() {
+        return countDiv;
+    }
+
+    public int getShapeCirculo() {
+        return shapeCirculo;
+    }
+
+    public int getShapeCuadrado() {
+        return shapeCuadrado;
+    }
+
+    public int getShapeRect() {
+        return shapeRect;
+    }
+
+    public int getShapeLinea() {
+        return shapeLinea;
+    }
+
+    public int getShapePoligono() {
+        return shapePoligono;
+    }
+
+    public int getAnimCurva() {
+        return animCurva;
+    }
+
+    public int getAnimLinea() {
+        return animLinea;
+    }
+
+    public int getCountAzul() {
+        return countAzul;
+    }
+
+    public int getCountRojo() {
+        return countRojo;
+    }
+
+    public int getCountVerde() {
+        return countVerde;
+    }
+
+    public int getCountAmarillo() {
+        return countAmarillo;
+    }
+
+    public int getCountNaranja() {
+        return countNaranja;
+    }
+
+    public int getCountMorado() {
+        return countMorado;
+    }
+
+    public int getCountCafe() {
+        return countCafe;
+    }
+
+    public int getCountNegro() {
+        return countNegro;
     }
 %}
 
@@ -73,12 +175,54 @@ Words = [a-zA-Z]+
             //System.out.println("Color de la figura: "+yytext());
             tmp_symbl = new Symbol (COLOR,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
             after_symbl = tmp_symbl;
+            switch(yytext()){
+                case "azul":
+                    countAzul++;
+                break;
+                case "rojo":
+                    countRojo++;
+                break;
+                case "verde":
+                    countVerde++;
+                break;
+                case "amarillo":
+                    countAmarillo++;
+                break;
+                case "naranja":
+                    countNaranja++;
+                break;
+                case "morado":
+                    countMorado++;
+                break;
+                case "cafe":
+                    countCafe++;
+                break;
+                case "negro":
+                    countNegro++;
+                break;
+            }
             return tmp_symbl;
         }
     {TypeAnimation}
         {   
             //System.out.println("Tipo de animacion: "+yytext());
-            tmp_symbl = new Symbol (ANIMATION,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+            if(yytext().equals("linea")){
+                if(after_symbl.value != null){
+                    if(after_symbl.sym==COMA){
+                        tmp_symbl = new Symbol (ANIMATION,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+                        animLinea++;
+                    }else{
+                        tmp_symbl = new Symbol (SHAPE_LIN,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+                        shapeLinea++;
+                    }
+                }else{
+                    tmp_symbl = new Symbol (ANIMATION,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+                    animLinea++;
+                }
+            }else{
+                tmp_symbl = new Symbol (ANIMATION,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+                animCurva++;
+            }
             after_symbl = tmp_symbl;
             return tmp_symbl;
         }
@@ -89,22 +233,27 @@ Words = [a-zA-Z]+
                 case "circulo":
                     tmp_symbl = new Symbol (SHAPE_CIR,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
                     after_symbl = tmp_symbl;
+                    shapeCirculo++;
                     return tmp_symbl;
                 case "cuadrado":
                     tmp_symbl = new Symbol (SHAPE_CUA,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
                     after_symbl = tmp_symbl;
+                    shapeCuadrado++;
                     return tmp_symbl;
                 case "rectangulo":
                     tmp_symbl = new Symbol (SHAPE_REC,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
                     after_symbl = tmp_symbl;
+                    shapeRect++;
                     return tmp_symbl;
                 case "linea":
                     tmp_symbl = new Symbol (SHAPE_LIN,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
                     after_symbl = tmp_symbl;
+                    shapeLinea++;
                     return tmp_symbl;
                 case "poligono":
                     tmp_symbl = new Symbol (SHAPE_POL,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
                     after_symbl = tmp_symbl;
+                    shapePoligono++;
                     return tmp_symbl;
             }
         }
@@ -127,6 +276,7 @@ Words = [a-zA-Z]+
             //System.out.println("Signo mas: "+yytext());
             tmp_symbl = new Symbol (SUMA,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
             after_symbl = tmp_symbl;
+            countMas.add(tmp_symbl);
             return tmp_symbl;
         }
     "-"
@@ -134,6 +284,7 @@ Words = [a-zA-Z]+
             //System.out.println("Signo menos: "+yytext());
             tmp_symbl = new Symbol (RESTA,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
             after_symbl = tmp_symbl;
+            countMenos.add(tmp_symbl);
             return tmp_symbl;
         }
     "*"
@@ -141,6 +292,7 @@ Words = [a-zA-Z]+
             //System.out.println("Signo multiplicacion: "+yytext());
             tmp_symbl = new Symbol (MULTI,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
             after_symbl = tmp_symbl;
+            countMulti.add(tmp_symbl);
             return tmp_symbl;
         }
     "/"
@@ -148,6 +300,7 @@ Words = [a-zA-Z]+
            //System.out.println("Signo divicion: "+yytext());
            tmp_symbl = new Symbol (DIV,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
            after_symbl = tmp_symbl;
+           countDiv.add(tmp_symbl);
             return tmp_symbl;
         }
     "("
