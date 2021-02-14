@@ -32,6 +32,7 @@ public class main {
         /*String cadenas = 
                 "graficar circulo ( (3+2)*2, 2, 3, rojo)"
                 ;*/
+        cadenas="";
         appLexer lex = new appLexer(new StringReader(cadenas));
         parser appParser = new parser(lex);
         try {
