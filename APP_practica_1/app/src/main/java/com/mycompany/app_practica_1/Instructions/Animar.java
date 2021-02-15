@@ -5,11 +5,13 @@
  */
 package com.mycompany.app_practica_1.Instructions;
 
+import java.io.Serializable;
+
 /**
  *
  * @author carlo
  */
-public class Animar {
+public class Animar implements Serializable {
     private int destinox;
     private int destinoy;
     private String typeAnimation;

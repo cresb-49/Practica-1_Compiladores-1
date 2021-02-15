@@ -5,11 +5,13 @@
  */
 package com.mycompany.app_practica_1.Instructions;
 
+import java.io.Serializable;
+
 /**
  *
  * @author carlo
  */
-public class Poligono {
+public class Poligono implements Serializable {
     private int posx;
     private int posy;
     private int alto;

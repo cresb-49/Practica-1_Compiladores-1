@@ -5,11 +5,13 @@
  */
 package com.mycompany.app_practica_1.Instructions;
 
+import java.io.Serializable;
+
 /**
  *
  * @author carlo
  */
-public class Cuadrado {
+public class Cuadrado implements Serializable {
     private int posx;
     private int posy;
     private int tamLado;

@@ -2,34 +2,41 @@ package com.mycompany.app_practica_1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
+import java.io.Serializable;
 import java.io.StringReader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.mycompany.app_practica_1.Parser.*;
 import com.mycompany.app_practica_1.Lexer.*;
+import com.mycompany.app_practica_1.UI.activity_resultado;
 
 public class MainActivity extends AppCompatActivity {
 
     private EditText textoEntrada;
+    private TextView logText;
     private Button graficar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
         //Recepcion de datos
-
+        logText = findViewById(R.id.logText);
         textoEntrada = findViewById(R.id.textoEntrada);
         graficar = findViewById(R.id.buttonCompilar);
+        //Parametros de logText
 
+        //Receto de informacion del log
+        logText.setText("");
         //Evento de boton graficar
         graficar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,27 +50,8 @@ public class MainActivity extends AppCompatActivity {
 
                     parser.parse();
 
-                    if (lex.getErrorsList().isEmpty() && parser.getErrorsList().isEmpty()) {
-                        Sincronizar syn = new Sincronizar();
-                        System.out.println("----------- RESULTADOS DE LECTURA --------------");
-                        System.out.println("Numeros Recuperados: " + parser.respuesta().getNums().toString());
-                        System.out.println("Sentencias Recuperadas: ");
-                        for (Object arg : syn.asignar(parser.respuesta().getNums(), parser.getSentencias())) {
-                            System.out.println(arg.toString());
-                        }
-                        //syn.asignar(appParser.respuesta().getNums(), appParser.getSentencias());
 
-                    } else {
-                        System.out.println("----------- SE ENCONTRARON ERRORES --------------");
-                        System.out.println("----------- ERRORES LEXICOS --------------");
-                        for (String err : lex.getErrorsList()) {
-                            System.out.println(err);
-                        }
-                        System.out.println("----------- ERRORES DE SINTAXIS --------------");
-                        for (String err : parser.getErrorsList()) {
-                            System.out.println(err);
-                        }
-                    }
+                    presentarLog(lex,parser);
 
                 } catch (Exception ex) { //error en parser
                     System.out.println("Error irrecuperable");
@@ -73,5 +61,39 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void presentarResultados(appLexer lex,parser parser){
+        Intent nuevaVentana = new Intent(this, activity_resultado.class);
+        Bundle bundle = new Bundle();
+        //Sentencias agregadas
+
+        bundle.putSerializable("sentancias", (Serializable) parser.getSentencias());
+        bundle.putSerializable("numeros", (Serializable) parser.respuesta().getNums());
+        bundle.putSerializable("parserErr", (Serializable) parser.getErrorsList());
+        bundle.putSerializable("lexerErr", (Serializable) lex.getErrorsList());
+        bundle.putSerializable("ReportLex", lex.getReporte());
+
+
+        nuevaVentana.putExtras(bundle);
+        startActivity(nuevaVentana);
+    }
+    private void presentarLog(appLexer lex,parser parser){
+        if(lex.getErrorsList().isEmpty()&&parser.getErrorsList().isEmpty()){
+            presentarResultados(lex,parser);
+        }else{
+            String log = "";
+            log = "---- ERRORES LEXICOS ----\n";
+            for(String str: lex.getErrorsList()){
+                log = log +str+"\n";
+            }
+
+            log = log + "---- ERRORES SINTACTICOS ----\n";
+            for(String str: parser.getErrorsList()){
+                log = log +str+"\n";
+            }
+            logText.setText(log);
+            System.out.println(log);
+        }
     }
 }

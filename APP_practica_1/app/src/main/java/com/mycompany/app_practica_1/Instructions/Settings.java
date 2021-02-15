@@ -1,9 +1,10 @@
 package com.mycompany.app_practica_1.Instructions;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
-public class Settings {
+public class Settings implements Serializable {
     private ArrayList<Integer> nums = new ArrayList<>();
        
     public Settings() {
