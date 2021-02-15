@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">APP_practica_1</string>
+    <string name="graficar_circulo_posx_posy_radio_color"><![CDATA[graficar circulo (<posx>, <posy>, <radio>, <color>)]]></string>
+    <string name="graficar_cuadrado_posx_posy_tama_o_lado_color"><![CDATA[graficar cuadrado (<posx>, <posy>, <tamaño lado>, <color>)]]></string>
+    <string name="graficar_rectangulo_posx_posy_alto_ancho_color"><![CDATA[graficar rectangulo (<posx>, <posy>, <alto>, <ancho>, <color>)]]></string>
+    <string name="animar_objeto_anterior_destinox_destinoy_tipoanimacion"><![CDATA[animar objeto anterior (<destinox>, <destinoy>, <tipoanimacion>)]]></string>
+    <string name="configurar_animacion">Configurar Animacion</string>
+    <string name="colores_disponibles">Colores Disponibles</string>
+    <string name="rojo">rojo</string>
+    <string name="verde">verde</string>
+    <string name="amarillo">amarillo</string>
+    <string name="naranja">naranja</string>
+    <string name="morado">morado</string>
+    <string name="cafe">cafe</string>
+    <string name="negro">negro</string>
+    <string name="graficar_linea_posx_posy_posx1_posy2_color"><![CDATA[graficar linea (<posx>, <posy>, <posx1>, <posy2>, <color>)]]></string>
+    <string name="graficar_poligono_posx_posy_alto_ancho_cantidad_lados_color"><![CDATA[graficar poligono (<posx>, <posy>, <alto>, <ancho>, <cantidad lados>, <color>)]]></string>
+    <string name="el_tipo_de_animacion_disponible_es_linea_y_curva">El tipo de animacion disponible es lineay curva</string>
+    <string name="azul">azul</string>
+    <string name="ayuda">AYUDA</string>
+    <string name="parametros_para_generar_figuras">Parametros para generar figuras</string>
 </resources>

@@ -15,8 +15,10 @@ import java.io.StringReader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.mycompany.app_practica_1.Parser.*;
 import com.mycompany.app_practica_1.Lexer.*;
+import com.mycompany.app_practica_1.UI.Ayuda;
 import com.mycompany.app_practica_1.UI.activity_resultado;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText textoEntrada;
     private TextView logText;
     private Button graficar;
+    private Button limpiarLog;
+    private FloatingActionButton ayuda;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
         logText = findViewById(R.id.logText);
         textoEntrada = findViewById(R.id.textoEntrada);
         graficar = findViewById(R.id.buttonCompilar);
+        limpiarLog = findViewById(R.id.buttonLimpiarLog);
+        ayuda = findViewById(R.id.floatingActionButton);
         //Parametros de logText
 
         //Receto de informacion del log
@@ -61,8 +67,23 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        limpiarLog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                logText.setText("");
+            }
+        });
+        ayuda.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ayudaUsuario();
+            }
+        });
     }
-
+    private void ayudaUsuario(){
+        Intent nuevaVentana = new Intent(this, Ayuda.class);
+        startActivity(nuevaVentana);
+    }
     private void presentarResultados(appLexer lex,parser parser){
         Intent nuevaVentana = new Intent(this, activity_resultado.class);
         Bundle bundle = new Bundle();
@@ -83,12 +104,12 @@ public class MainActivity extends AppCompatActivity {
             presentarResultados(lex,parser);
         }else{
             String log = "";
-            log = "---- ERRORES LEXICOS ----\n";
+            log = "------ ERRORES LEXICOS ------\n";
             for(String str: lex.getErrorsList()){
                 log = log +str+"\n";
             }
 
-            log = log + "---- ERRORES SINTACTICOS ----\n";
+            log = log + "------ ERRORES SINTACTICOS ------\n";
             for(String str: parser.getErrorsList()){
                 log = log +str+"\n";
             }
