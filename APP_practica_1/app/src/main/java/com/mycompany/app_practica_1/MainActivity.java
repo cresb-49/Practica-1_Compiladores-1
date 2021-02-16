@@ -91,9 +91,7 @@ public class MainActivity extends AppCompatActivity {
 
         bundle.putSerializable("sentancias", (Serializable) parser.getSentencias());
         bundle.putSerializable("numeros", (Serializable) parser.respuesta().getNums());
-        bundle.putSerializable("parserErr", (Serializable) parser.getErrorsList());
-        bundle.putSerializable("lexerErr", (Serializable) lex.getErrorsList());
-        bundle.putSerializable("ReportLex", lex.getReporte());
+        bundle.putSerializable("ReportLex", lex.getReporte().getReport());
 
 
         nuevaVentana.putExtras(bundle);

@@ -2,9 +2,13 @@ package com.mycompany.app_practica_1.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.mycompany.app_practica_1.Lexer.appLexer;
+import com.mycompany.app_practica_1.Lexer.reportLexer;
 import com.mycompany.app_practica_1.Parser.Sincronizar;
 import com.mycompany.app_practica_1.Parser.parser;
 import com.mycompany.app_practica_1.R;
@@ -15,36 +19,38 @@ import java.util.List;
 public class activity_resultado extends AppCompatActivity {
 
     private List<Object> sentencias;
-    private List<String> parserErrorList;
-    private List<String> lexerErrorList;
     private List<Integer> numerosRecuperados;
+    private String reportLex;
     private boolean bandera = false;
+    private Button reportes;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resultado);
+        reportes = findViewById(R.id.buttonReportes);
+
         recibirDatos();
 
         if(bandera){
-            if (lexerErrorList.isEmpty() && parserErrorList.isEmpty()) {
-                Sincronizar syn = new Sincronizar();
-                System.out.println("----------- RESULTADOS DE LECTURA --------------");
-                System.out.println("Numeros Recuperados: " + numerosRecuperados.toString());
-                System.out.println("Sentencias Recuperadas: ");
-                for (Object arg : syn.asignar(numerosRecuperados, sentencias)) {
-                    System.out.println(arg.toString());
-                }
-            } else {
-                System.out.println("----------- SE ENCONTRARON ERRORES --------------");
-                System.out.println("----------- ERRORES LEXICOS --------------");
-                for (String err : lexerErrorList) {
-                    System.out.println(err);
-                }
-                System.out.println("----------- ERRORES DE SINTAXIS --------------");
-                for (String err : parserErrorList) {
-                    System.out.println(err);
-                }
+            Sincronizar syn = new Sincronizar();
+            System.out.println("----------- RESULTADOS DE LECTURA --------------");
+            System.out.println("Numeros Recuperados: " + numerosRecuperados.toString());
+            System.out.println("Sentencias Recuperadas: ");
+            for (Object arg : syn.asignar(numerosRecuperados, sentencias)) {
+                System.out.println(arg.toString());
             }
+            System.out.println("----------- REPORTES DE EJECUCION --------------");
+            System.out.println(reportLex.toString());
+
+            reportes.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    vistaReportes();
+                }
+            });
+
         }else{
             System.out.println("No se recibieron datos");
         }
@@ -56,8 +62,16 @@ public class activity_resultado extends AppCompatActivity {
             bandera = true;
             sentencias = (List<Object>) datos.getSerializable("sentancias");
             numerosRecuperados= (List<Integer>) datos.getSerializable("numeros");
-            parserErrorList= (List<String>) datos.getSerializable("parserErr");
-            lexerErrorList= (List<String>) datos.getSerializable("lexerErr");
+            reportLex = (String) datos.getSerializable("ReportLex");
         }
+    }
+
+    private void vistaReportes(){
+        Intent nuevaVentana = new Intent(this, reportes_resultados.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("ReportLex",reportLex);
+
+        nuevaVentana.putExtras(bundle);
+        startActivity(nuevaVentana);
     }
 }

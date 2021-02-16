@@ -19,4 +19,8 @@
     <string name="azul">azul</string>
     <string name="ayuda">AYUDA</string>
     <string name="parametros_para_generar_figuras">Parametros para generar figuras</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="title_activity_result_data">resultData</string>
 </resources>
