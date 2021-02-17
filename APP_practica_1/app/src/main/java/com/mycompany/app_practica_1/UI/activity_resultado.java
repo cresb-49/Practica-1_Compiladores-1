@@ -1,6 +1,7 @@
 package com.mycompany.app_practica_1.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,12 +25,15 @@ public class activity_resultado extends AppCompatActivity {
     private boolean bandera = false;
     private Button reportes;
 
+    private ConstraintLayout drawArea;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resultado);
         reportes = findViewById(R.id.buttonReportes);
+        drawArea = findViewById(R.id.drawArea);
 
         recibirDatos();
 
@@ -43,6 +47,9 @@ public class activity_resultado extends AppCompatActivity {
             }
             System.out.println("----------- REPORTES DE EJECUCION --------------");
             System.out.println(reportLex.toString());
+
+            lienzo fondo = new lienzo(this,sentencias);
+            drawArea.addView(fondo);
 
             reportes.setOnClickListener(new View.OnClickListener() {
                 @Override
