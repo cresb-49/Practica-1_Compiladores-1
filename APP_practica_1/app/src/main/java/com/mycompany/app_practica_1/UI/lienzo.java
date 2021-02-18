@@ -11,6 +11,7 @@ import androidx.annotation.RequiresApi;
 import com.mycompany.app_practica_1.Instructions.Circulo;
 import com.mycompany.app_practica_1.Instructions.Cuadrado;
 import com.mycompany.app_practica_1.Instructions.Linea;
+import com.mycompany.app_practica_1.Instructions.Point;
 import com.mycompany.app_practica_1.Instructions.Poligono;
 import com.mycompany.app_practica_1.Instructions.Rectangulo;
 
@@ -92,8 +93,8 @@ public class lienzo extends View {
                 canvas.drawLine(tmp.getPosx(),tmp.getPosy(),tmp.getPosx2(),tmp.getPosy2(),tmpPincel);
             }
             if(obj instanceof Poligono){
-
-
+                Poligono tmp = (Poligono)obj;
+                this.drawPoligono(canvas,tmp);
             }
             if(obj instanceof Rectangulo){
                 Rectangulo tmp = (Rectangulo)obj;
@@ -154,10 +155,57 @@ public class lienzo extends View {
         //LADO IZQUIERDO
         canvas.drawLine(px+ancho,py,px+ancho,py+alto,tmpPincel);
     }
-    public void drawPoligono(Canvas canvas,int numLados){
-        double angulos[]=new double[numLados+1];
+    public void drawPoligono(Canvas canvas,Poligono poligono){
+        Paint pincel = color(poligono.getColor());
+        pincel.setStrokeWidth(ANCHO);
+
+        double a=poligono.getAncho()/2,b=poligono.getAlto()/2;
+
+        int lados = poligono.getLados();
+
+        double angulos[]= new double[lados+1];
+        Point puntos[] = new Point[lados+1];
+
+        for (int i = 0; i <= lados; i++) {
+            angulos[i]=(i*(360/lados));
+        }
+        double tx,ty,r;
+        int cont =0;
+
+        for(double an:angulos){
+            r = radio(an, a, b);
+            tx = r*Math.cos(an*Math.PI/180);
+            ty = r*Math.sin(an*Math.PI/180);
+            puntos[cont]=new Point(tx, ty);
+            cont++;
+        }
+
+        for(int i=0;i<(lados);i++){
+            if(i==(lados-1)){
+                canvas.drawLine((float) puntos[i].getX()+poligono.getPosx(),(float) puntos[i].getY()+poligono.getPosy(),(float) puntos[0].getX()+poligono.getPosx(),(float)puntos[0].getY()+poligono.getPosy(),pincel);
+            }else{
+                canvas.drawLine((float) puntos[i].getX()+poligono.getPosx(),(float) puntos[i].getY()+poligono.getPosy(),(float) puntos[i+1].getX()+poligono.getPosx(),(float)puntos[i+1].getY()+poligono.getPosy(),pincel);
+            }
+
+        }
 
 
+
+    }
+    private double radio(double angulo,double a,double b){
+        double tmp1,tmp2,tmp3,cos,sin;
+
+        cos = Math.cos(angulo*Math.PI/180);
+
+        sin = Math.sin(angulo*Math.PI/180);
+
+
+        tmp1 = (Math.pow(cos, 2))/(Math.pow(a, 2));
+        tmp2 = (Math.pow(sin, 2))/(Math.pow(b, 2));
+
+        tmp3 = Math.sqrt(1/(tmp1+tmp2));
+
+        return tmp3;
     }
 
 }
