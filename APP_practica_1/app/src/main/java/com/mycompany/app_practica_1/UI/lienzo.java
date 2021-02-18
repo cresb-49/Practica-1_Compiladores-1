@@ -3,17 +3,9 @@ package com.mycompany.app_practica_1.UI;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.os.Build;
 import android.view.View;
 
-import androidx.annotation.RequiresApi;
-
-import com.mycompany.app_practica_1.Instructions.Circulo;
-import com.mycompany.app_practica_1.Instructions.Cuadrado;
-import com.mycompany.app_practica_1.Instructions.Linea;
-import com.mycompany.app_practica_1.Instructions.Point;
-import com.mycompany.app_practica_1.Instructions.Poligono;
-import com.mycompany.app_practica_1.Instructions.Rectangulo;
+import com.mycompany.app_practica_1.Instructions.*;
 
 import java.util.List;
 
