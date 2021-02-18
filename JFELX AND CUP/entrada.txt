@@ -1,5 +1,0 @@
-graficar circulo ( 25 + 12, 25, 15/3, rojo)
-graficar cuadrado ( 12*3, 15+1, (15-3) / 4, verde)
-graficar rectangulo ( 12 * 3 + 2, 15, 4 / 4, negro)
-graficar linea ( 12 * 3 + 2, 15, 4 / 4, 50 * 1, amarillo)
-graficar poligono ( 12  + 2, 15, 12, 50 / 2, 6, amarillo)
