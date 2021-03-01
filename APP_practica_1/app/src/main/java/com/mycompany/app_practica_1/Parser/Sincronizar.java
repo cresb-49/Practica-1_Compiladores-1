@@ -10,7 +10,7 @@ public class Sincronizar {
 
     }
 
-    public List<Object> asignar(List<Integer> numeros, List<Object> sentencias) {
+    public List<Object> asignar(List<Double> numeros, List<Object> sentencias) {
         int size = numeros.size()-1;
         int tmsize = sentencias.size()-1;
         

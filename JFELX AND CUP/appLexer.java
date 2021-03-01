@@ -71,11 +71,11 @@ public class appLexer implements java_cup.runtime.Scanner, Serializable {
 
   private static final String ZZ_CMAP_BLOCKS_PACKED_0 =
     "\11\0\1\1\1\2\2\0\1\3\22\0\1\1\7\0"+
-    "\1\4\1\5\1\6\1\7\1\10\1\11\1\0\1\12"+
-    "\12\13\7\0\32\14\6\0\1\15\1\16\1\17\1\20"+
-    "\1\21\1\22\1\23\1\14\1\24\1\25\1\14\1\26"+
-    "\1\27\1\30\1\31\1\32\1\14\1\33\1\14\1\34"+
-    "\1\35\1\36\3\14\1\37\1\0\1\3\u0183\0";
+    "\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13"+
+    "\12\14\7\0\32\15\6\0\1\16\1\17\1\20\1\21"+
+    "\1\22\1\23\1\24\1\15\1\25\1\26\1\15\1\27"+
+    "\1\30\1\31\1\32\1\33\1\15\1\34\1\15\1\35"+
+    "\1\36\1\37\3\15\1\40\1\0\1\3\u0183\0";
 
   private static int [] zzUnpackcmap_blocks() {
     int [] result = new int[512];
@@ -103,11 +103,11 @@ public class appLexer implements java_cup.runtime.Scanner, Serializable {
 
   private static final String ZZ_ACTION_PACKED_0 =
     "\1\0\1\1\3\2\1\3\1\4\1\5\1\6\1\7"+
-    "\1\10\1\11\1\12\60\1\1\13\16\1\1\14\6\1"+
-    "\1\15\6\1\1\16";
+    "\1\10\1\11\1\12\13\1\1\0\20\1\1\13\25\1"+
+    "\1\14\16\1\1\15\6\1\1\16\6\1\1\17";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[91];
+    int [] result = new int[93];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -132,21 +132,21 @@ public class appLexer implements java_cup.runtime.Scanner, Serializable {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\40\0\100\0\140\0\200\0\40\0\40\0\40"+
-    "\0\40\0\40\0\40\0\40\0\240\0\300\0\340\0\u0100"+
-    "\0\u0120\0\u0140\0\u0160\0\u0180\0\u01a0\0\u01c0\0\u01e0\0\u0200"+
-    "\0\u0220\0\u0240\0\u0260\0\u0280\0\u02a0\0\u02c0\0\u02e0\0\u0300"+
-    "\0\u0320\0\u0340\0\u0360\0\u0380\0\u03a0\0\u03c0\0\u03e0\0\u0400"+
-    "\0\u0420\0\u0440\0\u0460\0\u0480\0\u04a0\0\u04c0\0\u04e0\0\u0500"+
-    "\0\u0520\0\u0540\0\u0560\0\u0580\0\u05a0\0\u05c0\0\u05e0\0\u0600"+
-    "\0\u0620\0\u0640\0\u0660\0\u0680\0\u06a0\0\300\0\u06c0\0\u06e0"+
-    "\0\u0700\0\u0720\0\u0740\0\u0760\0\u0780\0\u07a0\0\u07c0\0\u07e0"+
-    "\0\u0800\0\u0820\0\u0840\0\u0860\0\300\0\u0880\0\u08a0\0\u08c0"+
-    "\0\u08e0\0\u0900\0\u0920\0\300\0\u0940\0\u0960\0\u0980\0\u09a0"+
-    "\0\u09c0\0\u09e0\0\300";
+    "\0\0\0\41\0\102\0\143\0\204\0\41\0\41\0\41"+
+    "\0\41\0\41\0\41\0\41\0\245\0\306\0\347\0\u0108"+
+    "\0\u0129\0\u014a\0\u016b\0\u018c\0\u01ad\0\u01ce\0\u01ef\0\u0210"+
+    "\0\u0231\0\u0252\0\u0273\0\u0294\0\u02b5\0\u02d6\0\u02f7\0\u0318"+
+    "\0\u0339\0\u035a\0\u037b\0\u039c\0\u03bd\0\u03de\0\u03ff\0\u0420"+
+    "\0\u0441\0\u0231\0\u0462\0\u0483\0\u04a4\0\u04c5\0\u04e6\0\u0507"+
+    "\0\u0528\0\u0549\0\u056a\0\u058b\0\u05ac\0\u05cd\0\u05ee\0\u060f"+
+    "\0\u0630\0\u0651\0\u0672\0\u0693\0\u06b4\0\u06d5\0\u06f6\0\306"+
+    "\0\u0717\0\u0738\0\u0759\0\u077a\0\u079b\0\u07bc\0\u07dd\0\u07fe"+
+    "\0\u081f\0\u0840\0\u0861\0\u0882\0\u08a3\0\u08c4\0\306\0\u08e5"+
+    "\0\u0906\0\u0927\0\u0948\0\u0969\0\u098a\0\306\0\u09ab\0\u09cc"+
+    "\0\u09ed\0\u0a0e\0\u0a2f\0\u0a50\0\306";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[91];
+    int [] result = new int[93];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -170,52 +170,52 @@ public class appLexer implements java_cup.runtime.Scanner, Serializable {
 
   private static final String ZZ_TRANS_PACKED_0 =
     "\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11"+
-    "\1\12\1\13\1\14\1\15\1\16\1\17\1\16\1\20"+
-    "\3\16\1\21\2\16\1\22\1\23\1\24\1\25\1\26"+
-    "\1\27\2\16\1\30\1\16\41\0\2\3\36\0\1\3"+
-    "\1\4\1\5\36\0\2\5\47\0\1\15\40\0\24\16"+
-    "\14\0\13\16\1\31\1\32\6\16\1\33\14\0\1\16"+
-    "\1\34\6\16\1\35\10\16\1\36\2\16\14\0\17\16"+
-    "\1\37\4\16\14\0\10\16\1\40\13\16\14\0\15\16"+
-    "\1\41\6\16\14\0\1\16\1\42\3\16\1\43\16\16"+
-    "\14\0\2\16\1\44\21\16\14\0\15\16\1\45\6\16"+
-    "\14\0\5\16\1\46\7\16\1\47\6\16\14\0\5\16"+
-    "\1\50\16\16\14\0\1\16\1\51\22\16\14\0\10\16"+
-    "\1\52\7\16\1\53\3\16\14\0\21\16\1\54\2\16"+
-    "\14\0\6\16\1\55\15\16\14\0\17\16\1\56\4\16"+
-    "\14\0\1\16\1\57\15\16\1\60\4\16\14\0\1\16"+
-    "\1\61\22\16\14\0\14\16\1\62\7\16\14\0\17\16"+
-    "\1\63\4\16\14\0\17\16\1\64\4\16\14\0\7\16"+
-    "\1\65\14\16\14\0\11\16\1\66\12\16\14\0\12\16"+
-    "\1\67\11\16\14\0\3\16\1\70\20\16\14\0\11\16"+
-    "\1\71\12\16\14\0\17\16\1\72\4\16\14\0\17\16"+
-    "\1\73\4\16\14\0\13\16\1\74\10\16\14\0\5\16"+
-    "\1\75\16\16\14\0\12\16\1\76\11\16\14\0\5\16"+
-    "\1\76\16\16\14\0\3\16\1\77\20\16\14\0\4\16"+
-    "\1\100\17\16\14\0\22\16\1\101\1\16\14\0\6\16"+
-    "\1\102\15\16\14\0\5\16\1\101\16\16\14\0\1\16"+
-    "\1\103\22\16\14\0\1\16\1\104\22\16\14\0\17\16"+
-    "\1\71\4\16\14\0\5\16\1\105\16\16\14\0\10\16"+
-    "\1\106\13\16\14\0\20\16\1\107\3\16\14\0\15\16"+
-    "\1\76\6\16\14\0\4\16\1\55\17\16\14\0\10\16"+
-    "\1\110\13\16\14\0\1\16\1\111\22\16\14\0\17\16"+
-    "\1\112\4\16\14\0\21\16\1\113\2\16\14\0\17\16"+
-    "\1\114\4\16\14\0\1\16\1\115\22\16\14\0\10\16"+
-    "\1\116\13\16\14\0\4\16\1\71\17\16\14\0\14\16"+
-    "\1\117\7\16\14\0\20\16\1\120\3\16\14\0\7\16"+
-    "\1\121\14\16\14\0\1\16\1\122\22\16\14\0\12\16"+
-    "\1\123\11\16\14\0\17\16\1\124\4\16\14\0\10\16"+
-    "\1\125\13\16\14\0\12\16\1\126\11\16\14\0\1\16"+
-    "\1\127\22\16\14\0\3\16\1\74\20\16\14\0\11\16"+
-    "\1\130\12\16\14\0\15\16\1\124\6\16\14\0\15\16"+
-    "\1\131\6\16\14\0\14\16\1\132\7\16\14\0\12\16"+
-    "\1\71\11\16\14\0\15\16\1\111\6\16\14\0\15\16"+
-    "\1\133\6\16\14\0\4\16\1\126\17\16\14\0\1\16"+
-    "\1\76\22\16\14\0\14\16\1\126\7\16\14\0\7\16"+
-    "\1\77\14\16";
+    "\1\12\1\13\1\2\1\14\1\15\1\16\1\17\1\16"+
+    "\1\20\3\16\1\21\2\16\1\22\1\23\1\24\1\25"+
+    "\1\26\1\27\2\16\1\30\1\16\42\0\2\3\37\0"+
+    "\1\3\1\4\1\5\37\0\2\5\47\0\1\31\1\0"+
+    "\1\15\41\0\24\16\15\0\13\16\1\32\1\33\6\16"+
+    "\1\34\15\0\1\16\1\35\6\16\1\36\10\16\1\37"+
+    "\2\16\15\0\17\16\1\40\4\16\15\0\10\16\1\41"+
+    "\13\16\15\0\15\16\1\42\6\16\15\0\1\16\1\43"+
+    "\3\16\1\44\16\16\15\0\2\16\1\45\21\16\15\0"+
+    "\15\16\1\46\6\16\15\0\5\16\1\47\7\16\1\50"+
+    "\6\16\15\0\5\16\1\51\16\16\14\0\1\52\41\0"+
+    "\1\16\1\53\22\16\15\0\10\16\1\54\7\16\1\55"+
+    "\3\16\15\0\21\16\1\56\2\16\15\0\6\16\1\57"+
+    "\15\16\15\0\17\16\1\60\4\16\15\0\1\16\1\61"+
+    "\15\16\1\62\4\16\15\0\1\16\1\63\22\16\15\0"+
+    "\14\16\1\64\7\16\15\0\17\16\1\65\4\16\15\0"+
+    "\17\16\1\66\4\16\15\0\7\16\1\67\14\16\15\0"+
+    "\11\16\1\70\12\16\15\0\12\16\1\71\11\16\15\0"+
+    "\3\16\1\72\20\16\15\0\11\16\1\73\12\16\15\0"+
+    "\17\16\1\74\4\16\15\0\17\16\1\75\4\16\15\0"+
+    "\13\16\1\76\10\16\15\0\5\16\1\77\16\16\15\0"+
+    "\12\16\1\100\11\16\15\0\5\16\1\100\16\16\15\0"+
+    "\3\16\1\101\20\16\15\0\4\16\1\102\17\16\15\0"+
+    "\22\16\1\103\1\16\15\0\6\16\1\104\15\16\15\0"+
+    "\5\16\1\103\16\16\15\0\1\16\1\105\22\16\15\0"+
+    "\1\16\1\106\22\16\15\0\17\16\1\73\4\16\15\0"+
+    "\5\16\1\107\16\16\15\0\10\16\1\110\13\16\15\0"+
+    "\20\16\1\111\3\16\15\0\15\16\1\100\6\16\15\0"+
+    "\4\16\1\57\17\16\15\0\10\16\1\112\13\16\15\0"+
+    "\1\16\1\113\22\16\15\0\17\16\1\114\4\16\15\0"+
+    "\21\16\1\115\2\16\15\0\17\16\1\116\4\16\15\0"+
+    "\1\16\1\117\22\16\15\0\10\16\1\120\13\16\15\0"+
+    "\4\16\1\73\17\16\15\0\14\16\1\121\7\16\15\0"+
+    "\20\16\1\122\3\16\15\0\7\16\1\123\14\16\15\0"+
+    "\1\16\1\124\22\16\15\0\12\16\1\125\11\16\15\0"+
+    "\17\16\1\126\4\16\15\0\10\16\1\127\13\16\15\0"+
+    "\12\16\1\130\11\16\15\0\1\16\1\131\22\16\15\0"+
+    "\3\16\1\76\20\16\15\0\11\16\1\132\12\16\15\0"+
+    "\15\16\1\126\6\16\15\0\15\16\1\133\6\16\15\0"+
+    "\14\16\1\134\7\16\15\0\12\16\1\73\11\16\15\0"+
+    "\15\16\1\113\6\16\15\0\15\16\1\135\6\16\15\0"+
+    "\4\16\1\130\17\16\15\0\1\16\1\100\22\16\15\0"+
+    "\14\16\1\130\7\16\15\0\7\16\1\101\14\16";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[2560];
+    int [] result = new int[2673];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -258,10 +258,10 @@ public class appLexer implements java_cup.runtime.Scanner, Serializable {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\1\0\1\11\3\1\7\11\117\1";
+    "\1\0\1\11\3\1\7\11\14\1\1\0\104\1";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[91];
+    int [] result = new int[93];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -769,12 +769,12 @@ public class appLexer implements java_cup.runtime.Scanner, Serializable {
             { error(yytext());
             }
             // fall through
-          case 15: break;
+          case 16: break;
           case 2:
             { /*Do nothing*/
             }
             // fall through
-          case 16: break;
+          case 17: break;
           case 3:
             { //System.out.println("Parentecis Apertura: "+yytext());
             tmp_symbl = new Symbol (PARENTECIS_APERTURA,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
@@ -782,7 +782,7 @@ public class appLexer implements java_cup.runtime.Scanner, Serializable {
             return tmp_symbl;
             }
             // fall through
-          case 17: break;
+          case 18: break;
           case 4:
             { //System.out.println("Parentecis Cierre: "+yytext());
             tmp_symbl = new Symbol (PARENTECIS_CIERRE,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
@@ -790,7 +790,7 @@ public class appLexer implements java_cup.runtime.Scanner, Serializable {
             return tmp_symbl;
             }
             // fall through
-          case 18: break;
+          case 19: break;
           case 5:
             { //System.out.println("Signo multiplicacion: "+yytext());
             tmp_symbl = new Symbol (MULTI,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
@@ -799,7 +799,7 @@ public class appLexer implements java_cup.runtime.Scanner, Serializable {
             return tmp_symbl;
             }
             // fall through
-          case 19: break;
+          case 20: break;
           case 6:
             { //System.out.println("Signo mas: "+yytext());
             tmp_symbl = new Symbol (SUMA,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
@@ -808,7 +808,7 @@ public class appLexer implements java_cup.runtime.Scanner, Serializable {
             return tmp_symbl;
             }
             // fall through
-          case 20: break;
+          case 21: break;
           case 7:
             { //System.out.println("Separador coma: "+yytext());
             tmp_symbl = new Symbol (COMA,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
@@ -816,7 +816,7 @@ public class appLexer implements java_cup.runtime.Scanner, Serializable {
             return tmp_symbl;
             }
             // fall through
-          case 21: break;
+          case 22: break;
           case 8:
             { //System.out.println("Signo menos: "+yytext());
             tmp_symbl = new Symbol (RESTA,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
@@ -825,7 +825,7 @@ public class appLexer implements java_cup.runtime.Scanner, Serializable {
             return tmp_symbl;
             }
             // fall through
-          case 22: break;
+          case 23: break;
           case 9:
             { //System.out.println("Signo divicion: "+yytext());
            tmp_symbl = new Symbol (DIV,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
@@ -834,7 +834,7 @@ public class appLexer implements java_cup.runtime.Scanner, Serializable {
             return tmp_symbl;
             }
             // fall through
-          case 23: break;
+          case 24: break;
           case 10:
             { //System.out.println("Numero encontrado: "+yytext());
             tmp_symbl = new Symbol (NUMBER,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
@@ -842,8 +842,16 @@ public class appLexer implements java_cup.runtime.Scanner, Serializable {
             return tmp_symbl;
             }
             // fall through
-          case 24: break;
+          case 25: break;
           case 11:
+            { //System.out.println("Numero decimal encontrado: "+yytext());
+            tmp_symbl = new Symbol (NUMBER,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+            after_symbl = tmp_symbl;
+            return tmp_symbl;
+            }
+            // fall through
+          case 26: break;
+          case 12:
             { //System.out.println("Color de la figura: "+yytext());
             tmp_symbl = new Symbol (COLOR,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
             after_symbl = tmp_symbl;
@@ -876,8 +884,8 @@ public class appLexer implements java_cup.runtime.Scanner, Serializable {
             return tmp_symbl;
             }
             // fall through
-          case 25: break;
-          case 12:
+          case 27: break;
+          case 13:
             { //System.out.println("Tipo de animacion: "+yytext());
             if(yytext().equals("linea")){
                 if(after_symbl.value != null){
@@ -900,8 +908,8 @@ public class appLexer implements java_cup.runtime.Scanner, Serializable {
             return tmp_symbl;
             }
             // fall through
-          case 26: break;
-          case 13:
+          case 28: break;
+          case 14:
             { //System.out.println("Palabra recervada: "+yytext());
             switch (yytext()) {
                 case "graficar":
@@ -923,8 +931,8 @@ public class appLexer implements java_cup.runtime.Scanner, Serializable {
             }
             }
             // fall through
-          case 27: break;
-          case 14:
+          case 29: break;
+          case 15:
             { //System.out.println("Tipo de figura: "+yytext());
             switch (yytext()) {
                 case "circulo":
@@ -955,7 +963,7 @@ public class appLexer implements java_cup.runtime.Scanner, Serializable {
             }
             }
             // fall through
-          case 28: break;
+          case 30: break;
           default:
             zzScanError(ZZ_NO_MATCH);
         }

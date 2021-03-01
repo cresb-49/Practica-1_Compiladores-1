@@ -39,6 +39,7 @@ Colors = (azul|rojo|verde|amarillo|naranja|morado|cafe|negro)
 TypeAnimation = (linea|curva)
 TypeShape = (circulo|cuadrado|rectangulo|linea|poligono)
 Numbers = [0-9]+
+Decimal = [0-9]+[.][0-9]+
 Words = [a-zA-Z]+
 %{
     private void error(String lexeme) {
@@ -170,6 +171,13 @@ Words = [a-zA-Z]+
     {Numbers}
         {
             //System.out.println("Numero encontrado: "+yytext());
+            tmp_symbl = new Symbol (NUMBER,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+            after_symbl = tmp_symbl;
+            return tmp_symbl;
+        }
+    {Decimal}
+        {
+            //System.out.println("Numero decimal encontrado: "+yytext());
             tmp_symbl = new Symbol (NUMBER,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
             after_symbl = tmp_symbl;
             return tmp_symbl;

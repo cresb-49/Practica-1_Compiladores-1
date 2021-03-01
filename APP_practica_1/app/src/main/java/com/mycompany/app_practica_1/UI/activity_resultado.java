@@ -20,7 +20,7 @@ import java.util.List;
 public class activity_resultado extends AppCompatActivity {
 
     private List<Object> sentencias;
-    private List<Integer> numerosRecuperados;
+    private List<Double> numerosRecuperados;
     private String reportLex;
     private boolean bandera = false;
     private Button reportes;
@@ -68,7 +68,7 @@ public class activity_resultado extends AppCompatActivity {
         if(datos != null){
             bandera = true;
             sentencias = (List<Object>) datos.getSerializable("sentancias");
-            numerosRecuperados= (List<Integer>) datos.getSerializable("numeros");
+            numerosRecuperados= (List<Double>) datos.getSerializable("numeros");
             reportLex = (String) datos.getSerializable("ReportLex");
         }
     }

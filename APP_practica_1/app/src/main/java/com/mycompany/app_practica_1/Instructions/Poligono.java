@@ -12,17 +12,17 @@ import java.io.Serializable;
  * @author carlo
  */
 public class Poligono implements Serializable {
-    private int posx;
-    private int posy;
-    private int alto;
-    private int ancho;
-    private int lados;
+    private double posx;
+    private double posy;
+    private double alto;
+    private double ancho;
+    private double lados;
     private String color;
     
     public Poligono(){
         
     }
-    public Poligono(int posx,int posy,int alto,int ancho,int lados,String color){
+    public Poligono(double posx,double posy,double alto,double ancho,double lados,String color){
         this.posx=posx;
         this.posy=posy;
         this.alto=alto;
@@ -31,43 +31,43 @@ public class Poligono implements Serializable {
         this.color=color;
     }
 
-    public int getPosx() {
+    public double getPosx() {
         return posx;
     }
 
-    public void setPosx(int posx) {
+    public void setPosx(double posx) {
         this.posx = posx;
     }
 
-    public int getPosy() {
+    public double getPosy() {
         return posy;
     }
 
-    public void setPosy(int posy) {
+    public void setPosy(double posy) {
         this.posy = posy;
     }
 
-    public int getAlto() {
+    public double getAlto() {
         return alto;
     }
 
-    public void setAlto(int alto) {
+    public void setAlto(double alto) {
         this.alto = alto;
     }
 
-    public int getAncho() {
+    public double getAncho() {
         return ancho;
     }
 
-    public void setAncho(int ancho) {
+    public void setAncho(double ancho) {
         this.ancho = ancho;
     }
 
-    public int getLados() {
+    public double getLados() {
         return lados;
     }
 
-    public void setLados(int lados) {
+    public void setLados(double lados) {
         this.lados = lados;
     }
 

@@ -32,7 +32,7 @@ public class lienzo extends View {
             if(obj instanceof Circulo){
 
                 Circulo tmp = (Circulo)obj;
-                canvas.drawCircle(tmp.getPosx(),tmp.getPosy(),tmp.getRadio(),color(tmp.getColor()));
+                canvas.drawCircle((float) tmp.getPosx(),(float)tmp.getPosy(),(float)tmp.getRadio(),color(tmp.getColor()));
 
                 //canvas.drawCircle(tmp.getPosx(),tmp.getPosy(),(tmp.getRadio()-ANCHO),color("default"));
 
@@ -67,7 +67,7 @@ public class lienzo extends View {
             if(obj instanceof Cuadrado){
                 Cuadrado tmp = (Cuadrado)obj;
                 //this.drawCuadrilatero(tmp.getPosx(),tmp.getPosy(),tmp.getTamLado(),tmp.getTamLado(),tmp.getColor(),canvas);
-                canvas.drawRect(tmp.getPosx(),tmp.getPosy(),tmp.getPosx()+tmp.getTamLado(),tmp.getPosy()+tmp.getTamLado(),color(tmp.getColor()));
+                canvas.drawRect((float)tmp.getPosx(),(float)tmp.getPosy(),(float)(tmp.getPosx()+tmp.getTamLado()),(float)(tmp.getPosy()+tmp.getTamLado()),color(tmp.getColor()));
                 //canvas.drawRect(tmp.getPosx()+ANCHO,tmp.getPosy()+ANCHO,tmp.getPosx()+tmp.getTamLado()-ANCHO,tmp.getPosy()+tmp.getTamLado()-ANCHO,color("default"));
 
 
@@ -76,7 +76,7 @@ public class lienzo extends View {
                 Linea tmp =(Linea)obj;
                 Paint tmpPincel = color(tmp.getColor());
                 tmpPincel.setStrokeWidth(ANCHO);
-                canvas.drawLine(tmp.getPosx(),tmp.getPosy(),tmp.getPosx2(),tmp.getPosy2(),tmpPincel);
+                canvas.drawLine((float)tmp.getPosx(),(float)tmp.getPosy(),(float)tmp.getPosx2(),(float)tmp.getPosy2(),tmpPincel);
             }
             if(obj instanceof Poligono){
                 Poligono tmp = (Poligono)obj;
@@ -85,7 +85,7 @@ public class lienzo extends View {
             if(obj instanceof Rectangulo){
                 Rectangulo tmp = (Rectangulo)obj;
                 //this.drawCuadrilatero(tmp.getPosx(),tmp.getPosy(),tmp.getAlto(),tmp.getAncho(),tmp.getColor(),canvas);
-                canvas.drawRect(tmp.getPosx(),tmp.getPosy(),tmp.getPosx()+tmp.getAlto(),tmp.getPosy()+tmp.getAncho(),color(tmp.getColor()));
+                canvas.drawRect((float)tmp.getPosx(),(float)tmp.getPosy(),(float)(tmp.getPosx()+tmp.getAlto()),(float)(tmp.getPosy()+tmp.getAncho()),color(tmp.getColor()));
             }
         }
     }
@@ -148,10 +148,10 @@ public class lienzo extends View {
 
         double a=poligono.getAncho()/2,b=poligono.getAlto()/2;
 
-        int lados = poligono.getLados();
+        double lados = poligono.getLados();
 
-        double angulos[]= new double[lados+1];
-        Point puntos[] = new Point[lados+1];
+        double angulos[]= new double[(int)lados+1];
+        Point puntos[] = new Point[(int)lados+1];
 
         for (int i = 0; i <= lados; i++) {
             angulos[i]=(i*(360/lados));
@@ -169,9 +169,9 @@ public class lienzo extends View {
 
         for(int i=0;i<(lados);i++){
             if(i==(lados-1)){
-                canvas.drawLine((float) puntos[i].getX()+poligono.getPosx(),(float) puntos[i].getY()+poligono.getPosy(),(float) puntos[0].getX()+poligono.getPosx(),(float)puntos[0].getY()+poligono.getPosy(),pincel);
+                canvas.drawLine((float) puntos[i].getX()+(float)poligono.getPosx(),(float) puntos[i].getY()+(float)poligono.getPosy(),(float) puntos[0].getX()+(float)poligono.getPosx(),(float)puntos[0].getY()+(float)poligono.getPosy(),pincel);
             }else{
-                canvas.drawLine((float) puntos[i].getX()+poligono.getPosx(),(float) puntos[i].getY()+poligono.getPosy(),(float) puntos[i+1].getX()+poligono.getPosx(),(float)puntos[i+1].getY()+poligono.getPosy(),pincel);
+                canvas.drawLine((float) puntos[i].getX()+(float)poligono.getPosx(),(float) puntos[i].getY()+(float)poligono.getPosy(),(float) puntos[i+1].getX()+(float)poligono.getPosx(),(float)puntos[i+1].getY()+(float)poligono.getPosy(),pincel);
             }
 
         }

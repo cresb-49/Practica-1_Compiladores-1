@@ -12,15 +12,15 @@ import java.io.Serializable;
  * @author carlo
  */
 public class Linea implements Serializable {
-    private int posx;
-    private int posy;
-    private int posx2;
-    private int posy2;
+    private double posx;
+    private double posy;
+    private double posx2;
+    private double posy2;
     private String color;
     public Linea(){
         
     }
-    public Linea(int posx,int posy,int posx2,int posy2,String color){
+    public Linea(double posx,double posy,double posx2,double posy2,String color){
         this.posx=posx;
         this.posy=posy;
         this.posx2=posx2;
@@ -28,35 +28,35 @@ public class Linea implements Serializable {
         this.color=color;
     }
 
-    public int getPosx() {
+    public double getPosx() {
         return posx;
     }
 
-    public void setPosx(int posx) {
+    public void setPosx(double posx) {
         this.posx = posx;
     }
 
-    public int getPosy() {
+    public double getPosy() {
         return posy;
     }
 
-    public void setPosy(int posy) {
+    public void setPosy(double posy) {
         this.posy = posy;
     }
 
-    public int getPosx2() {
+    public double getPosx2() {
         return posx2;
     }
 
-    public void setPosx2(int posx2) {
+    public void setPosx2(double posx2) {
         this.posx2 = posx2;
     }
 
-    public int getPosy2() {
+    public double getPosy2() {
         return posy2;
     }
 
-    public void setPosy2(int posy2) {
+    public void setPosy2(double posy2) {
         this.posy2 = posy2;
     }
 

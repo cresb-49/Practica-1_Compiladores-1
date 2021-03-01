@@ -1,18 +1,23 @@
-package com.mycompany.pruebaspractica1compiladores.Parcer;
-import com.mycompany.pruebaspractica1compiladores.Lexer.sym;
-import com.mycompany.pruebaspractica1compiladores.Lexer.appLexer;
-import com.mycompany.pruebaspractica1compiladores.Instructions.Settings;
-import com.mycompany.pruebaspractica1compiladores.Instructions.*;
+package com.mycompany.app_practica_1.Parser;
+
+import com.mycompany.app_practica_1.Lexer.sym;
+import com.mycompany.app_practica_1.Lexer.appLexer;
+import com.mycompany.app_practica_1.Instructions.Settings;
+import com.mycompany.app_practica_1.Instructions.*;
 import java_cup.runtime.*;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java_cup.runtime.XMLElement;
 
 
 parser code {:
-        private int numero =0;
-        private int termino=0;
-        private int fact=0;
-        private int exprecion=0;
+        private double numero =0;
+        private double termino=0;
+        private double fact=0;
+        private double exprecion=0;
+
         private boolean bandera = true;
         private Settings parametrosSoft = new Settings();
         private reporteError espera = new reporteError();
@@ -62,7 +67,7 @@ parser code {:
 
 :}
 
-terminal ERROR,RESERVATE_WORD_GRAPHIC,RESERVATE_WORD_ANIMATION,RESERVATE_WORD_OBJECT,RESERVATE_WORD_REFERENCE,COLOR,ANIMATION,SHAPE_CIR,SHAPE_CUA,SHAPE_REC,SHAPE_LIN,SHAPE_POL,NUMBER,COMA,SUMA,RESTA,MULTI,DIV,PARENTECIS_APERTURA,PARENTECIS_CIERRE;
+terminal RESERVATE_WORD_GRAPHIC,RESERVATE_WORD_ANIMATION,RESERVATE_WORD_OBJECT,RESERVATE_WORD_REFERENCE,COLOR,ANIMATION,SHAPE_CIR,SHAPE_CUA,SHAPE_REC,SHAPE_LIN,SHAPE_POL,NUMBER,COMA,SUMA,RESTA,MULTI,DIV,PARENTECIS_APERTURA,PARENTECIS_CIERRE;
 non terminal s,t,y,var,shapeParams,expr,term,factor;
 
 s ::=   RESERVATE_WORD_GRAPHIC shapeParams {://System.out.println("Inicio de produccion");:}
@@ -153,7 +158,7 @@ factor ::=  NUMBER:e1                                           {:
                                                                                 //System.out.println("Inicio de operacion");
                                                                                 bandera =false;
                                                                         }
-                                                                        numero = Integer.parseInt(((ParamsSymbol)e1).lexema);
+                                                                        numero = Double.parseDouble(((ParamsSymbol)e1).lexema);
                                                                         //System.out.println("El numero es: "+numero);
                                                                         fact = numero;
                                                                         

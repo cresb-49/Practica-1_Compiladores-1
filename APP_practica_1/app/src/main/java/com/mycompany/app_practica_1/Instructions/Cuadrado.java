@@ -12,41 +12,41 @@ import java.io.Serializable;
  * @author carlo
  */
 public class Cuadrado implements Serializable {
-    private int posx;
-    private int posy;
-    private int tamLado;
+    private double posx;
+    private double posy;
+    private double tamLado;
     private String color;
     public Cuadrado(){
         
     }
-    public Cuadrado(int posx,int posy,int tamLado,String color){
+    public Cuadrado(double posx,double posy,double tamLado,String color){
         this.posx=posx;
         this.posy=posy;
         this.tamLado=tamLado;
         this.color=color;
     }
 
-    public int getPosx() {
+    public double getPosx() {
         return posx;
     }
 
-    public void setPosx(int posx) {
+    public void setPosx(double posx) {
         this.posx = posx;
     }
 
-    public int getPosy() {
+    public double getPosy() {
         return posy;
     }
 
-    public void setPosy(int posy) {
+    public void setPosy(double posy) {
         this.posy = posy;
     }
 
-    public int getTamLado() {
+    public double getTamLado() {
         return tamLado;
     }
 
-    public void setTamLado(int tamLado) {
+    public void setTamLado(double tamLado) {
         this.tamLado = tamLado;
     }
 

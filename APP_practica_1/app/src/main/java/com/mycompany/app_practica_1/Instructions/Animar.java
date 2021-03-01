@@ -12,32 +12,32 @@ import java.io.Serializable;
  * @author carlo
  */
 public class Animar implements Serializable {
-    private int destinox;
-    private int destinoy;
+    private double destinox;
+    private double destinoy;
     private String typeAnimation;
     public Animar(){
         
     }
-    public Animar(int destinox,int destinoy,String typeAnimation){
+    public Animar(double destinox,double destinoy,String typeAnimation){
         this.destinox=destinox;
         this.destinoy=destinoy;
         this.typeAnimation=typeAnimation;
         
     }
 
-    public int getDestinox() {
+    public double getDestinox() {
         return destinox;
     }
 
-    public void setDestinox(int destinox) {
+    public void setDestinox(double destinox) {
         this.destinox = destinox;
     }
 
-    public int getDestinoy() {
+    public double getDestinoy() {
         return destinoy;
     }
 
-    public void setDestinoy(int destinoy) {
+    public void setDestinoy(double destinoy) {
         this.destinoy = destinoy;
     }
 

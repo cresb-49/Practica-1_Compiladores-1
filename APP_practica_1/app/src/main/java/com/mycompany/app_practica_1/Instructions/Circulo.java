@@ -12,41 +12,41 @@ import java.io.Serializable;
  * @author carlo
  */
 public class Circulo implements Serializable {
-    private int posx;
-    private int posy;
-    private int radio;
+    private double posx;
+    private double posy;
+    private double radio;
     private String color;
     public Circulo(){
         
     }
-    public Circulo(int posx,int posy,int radio,String color){
+    public Circulo(double posx,double posy,double radio,String color){
         this.posx=posx;
         this.posy=posy;
         this.radio=radio;
         this.color=color;
     }
 
-    public int getPosx() {
+    public double getPosx() {
         return posx;
     }
 
-    public void setPosx(int posx) {
+    public void setPosx(double posx) {
         this.posx = posx;
     }
 
-    public int getPosy() {
+    public double getPosy() {
         return posy;
     }
 
-    public void setPosy(int posy) {
+    public void setPosy(double posy) {
         this.posy = posy;
     }
 
-    public int getRadio() {
+    public double getRadio() {
         return radio;
     }
 
-    public void setRadio(int radio) {
+    public void setRadio(double radio) {
         this.radio = radio;
     }
 

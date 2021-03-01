@@ -12,16 +12,16 @@ import java.io.Serializable;
  * @author carlo
  */
 public class Rectangulo implements Serializable {
-    private int posx;
-    private int posy;
-    private int alto;
-    private int ancho;
+    private double posx;
+    private double posy;
+    private double alto;
+    private double ancho;
     private String color;
 
     public Rectangulo() {
     }
 
-    public Rectangulo(int posx, int posy, int alto, int ancho, String color) {
+    public Rectangulo(double posx, double posy, double alto, double ancho, String color) {
         this.posx = posx;
         this.posy = posy;
         this.alto = alto;
@@ -29,35 +29,35 @@ public class Rectangulo implements Serializable {
         this.color = color;
     }
 
-    public int getPosx() {
+    public double getPosx() {
         return posx;
     }
 
-    public void setPosx(int posx) {
+    public void setPosx(double posx) {
         this.posx = posx;
     }
 
-    public int getPosy() {
+    public double getPosy() {
         return posy;
     }
 
-    public void setPosy(int posy) {
+    public void setPosy(double posy) {
         this.posy = posy;
     }
 
-    public int getAlto() {
+    public double getAlto() {
         return alto;
     }
 
-    public void setAlto(int alto) {
+    public void setAlto(double alto) {
         this.alto = alto;
     }
 
-    public int getAncho() {
+    public double getAncho() {
         return ancho;
     }
 
-    public void setAncho(int ancho) {
+    public void setAncho(double ancho) {
         this.ancho = ancho;
     }
 

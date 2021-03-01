@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 
 public class Settings implements Serializable {
-    private ArrayList<Integer> nums = new ArrayList<>();
+    private ArrayList<Double> nums = new ArrayList<>();
        
     public Settings() {
         
@@ -13,7 +13,7 @@ public class Settings implements Serializable {
     public ArrayList getNums() {
         return nums;
     }
-    public void agregarNumero(int num){
+    public void agregarNumero(double num){
         this.nums.add(num);
     }
     public void setNums(ArrayList nums) {

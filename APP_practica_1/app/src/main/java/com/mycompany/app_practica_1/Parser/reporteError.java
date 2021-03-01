@@ -47,12 +47,9 @@ public class reporteError {
                 return "-";
             case RESERVATE_WORD_OBJECT:
                 return "objeto";
-            case ERROR:
-                break;
             default:
                 return "";
 
         }
-        return "";
     }
 }
