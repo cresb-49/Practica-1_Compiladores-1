@@ -3,17 +3,19 @@
 // source: appLexer.jflex
 
 /*PRIMER SECCION, CODIGO DE USUARIO*/
-package com.mycompany.pruebaspractica1compiladores.Lexer;
+package com.mycompany.app_practica_1.Lexer;
 import java_cup.runtime.*;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import static com.mycompany.pruebaspractica1compiladores.Lexer.sym.*;
-import com.mycompany.pruebaspractica1compiladores.Parcer.ParamsSymbol;
+import static com.mycompany.app_practica_1.Lexer.sym.*;
+import com.mycompany.app_practica_1.Parser.ParamsSymbol;
 
 
 // See https://github.com/jflex-de/jflex/issues/222
 @SuppressWarnings("FallThrough")
-public class appLexer implements java_cup.runtime.Scanner {
+public class appLexer implements java_cup.runtime.Scanner, Serializable {
 
   /** This character denotes the end of file. */
   public static final int YYEOF = -1;
@@ -342,28 +344,7 @@ public class appLexer implements java_cup.runtime.Scanner {
     private List<String> errorsList = new ArrayList<>();
 
 
-    private List<Symbol> countMas = new ArrayList();
-    private List<Symbol> countMenos = new ArrayList();
-    private List<Symbol> countMulti = new ArrayList();
-    private List<Symbol> countDiv = new ArrayList();
-    
-    private int shapeCirculo =0;
-    private int shapeCuadrado =0;
-    private int shapeRect =0 ;
-    private int shapeLinea=0;
-    private int shapePoligono=0;
-
-    private int animCurva=0;
-    private int animLinea=0;
-
-    private int countAzul=0;
-    private int countRojo=0;
-    private int countVerde=0;
-    private int countAmarillo=0;
-    private int countNaranja=0;
-    priavte int countMorado=0;
-    private int countCafe=0;
-    private int countNegro=0;
+    private reportLexer reporte = new reportLexer();
     
 
 
@@ -373,6 +354,9 @@ public class appLexer implements java_cup.runtime.Scanner {
     }
     public List<String> getErrorsList() {
         return errorsList;
+    }
+    public reportLexer getReporte(){
+      return reporte;
     }
 
 
@@ -783,9 +767,6 @@ public class appLexer implements java_cup.runtime.Scanner {
         switch (zzAction < 0 ? zzAction : ZZ_ACTION[zzAction]) {
           case 1:
             { error(yytext());
-            tmp_symbl = new Symbol (ERROR,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
-            after_symbl = tmp_symbl;
-            return tmp_symbl;
             }
             // fall through
           case 15: break;
@@ -814,7 +795,7 @@ public class appLexer implements java_cup.runtime.Scanner {
             { //System.out.println("Signo multiplicacion: "+yytext());
             tmp_symbl = new Symbol (MULTI,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
             after_symbl = tmp_symbl;
-            countMulti.add(tmp_symbl);
+            reporte.countMulti.add(tmp_symbl);
             return tmp_symbl;
             }
             // fall through
@@ -823,7 +804,7 @@ public class appLexer implements java_cup.runtime.Scanner {
             { //System.out.println("Signo mas: "+yytext());
             tmp_symbl = new Symbol (SUMA,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
             after_symbl = tmp_symbl;
-            countMas.add(tmp_symbl);
+            reporte.countMas.add(tmp_symbl);
             return tmp_symbl;
             }
             // fall through
@@ -840,7 +821,7 @@ public class appLexer implements java_cup.runtime.Scanner {
             { //System.out.println("Signo menos: "+yytext());
             tmp_symbl = new Symbol (RESTA,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
             after_symbl = tmp_symbl;
-            countMenos.add(tmp_symbl);
+            reporte.countMenos.add(tmp_symbl);
             return tmp_symbl;
             }
             // fall through
@@ -849,7 +830,7 @@ public class appLexer implements java_cup.runtime.Scanner {
             { //System.out.println("Signo divicion: "+yytext());
            tmp_symbl = new Symbol (DIV,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
            after_symbl = tmp_symbl;
-           countDiv.add(tmp_symbl);
+           reporte.countDiv.add(tmp_symbl);
             return tmp_symbl;
             }
             // fall through
@@ -868,28 +849,28 @@ public class appLexer implements java_cup.runtime.Scanner {
             after_symbl = tmp_symbl;
             switch(yytext()){
                 case "azul":
-                    countAzul++;
+                    reporte.countAzul++;
                 break;
                 case "rojo":
-                    countRojo++;
+                    reporte.countRojo++;
                 break;
                 case "verde":
-                    countVerde++;
+                    reporte.countVerde++;
                 break;
                 case "amarillo":
-                    countAmarillo++;
+                    reporte.countAmarillo++;
                 break;
                 case "naranja":
-                    countNaranja++;
+                    reporte.countNaranja++;
                 break;
                 case "morado":
-                    countMorado++;
+                    reporte.countMorado++;
                 break;
                 case "cafe":
-                    countCafe++;
+                    reporte.countCafe++;
                 break;
                 case "negro":
-                    countNegro++;
+                    reporte.countNegro++;
                 break;
             }
             return tmp_symbl;
@@ -902,18 +883,18 @@ public class appLexer implements java_cup.runtime.Scanner {
                 if(after_symbl.value != null){
                     if(after_symbl.sym==COMA){
                         tmp_symbl = new Symbol (ANIMATION,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
-                        animLinea++;
+                        reporte.animLinea++;
                     }else{
                         tmp_symbl = new Symbol (SHAPE_LIN,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
-                        shapeLinea++;
+                        reporte.shapeLinea++;
                     }
                 }else{
                     tmp_symbl = new Symbol (ANIMATION,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
-                    animLinea++;
+                    reporte.animLinea++;
                 }
             }else{
                 tmp_symbl = new Symbol (ANIMATION,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
-                animCurva++;
+                reporte.animCurva++;
             }
             after_symbl = tmp_symbl;
             return tmp_symbl;
@@ -949,27 +930,27 @@ public class appLexer implements java_cup.runtime.Scanner {
                 case "circulo":
                     tmp_symbl = new Symbol (SHAPE_CIR,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
                     after_symbl = tmp_symbl;
-                    shapeCirculo++;
+                    reporte.shapeCirculo++;
                     return tmp_symbl;
                 case "cuadrado":
                     tmp_symbl = new Symbol (SHAPE_CUA,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
                     after_symbl = tmp_symbl;
-                    shapeCuadrado++;
+                    reporte.shapeCuadrado++;
                     return tmp_symbl;
                 case "rectangulo":
                     tmp_symbl = new Symbol (SHAPE_REC,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
                     after_symbl = tmp_symbl;
-                    shapeRect++;
+                    reporte.shapeRect++;
                     return tmp_symbl;
                 case "linea":
                     tmp_symbl = new Symbol (SHAPE_LIN,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
                     after_symbl = tmp_symbl;
-                    shapeLinea++;
+                    reporte.shapeLinea++;
                     return tmp_symbl;
                 case "poligono":
                     tmp_symbl = new Symbol (SHAPE_POL,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
                     after_symbl = tmp_symbl;
-                    shapePoligono++;
+                    reporte.shapePoligono++;
                     return tmp_symbl;
             }
             }

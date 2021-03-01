@@ -1,10 +1,12 @@
 /*PRIMER SECCION, CODIGO DE USUARIO*/
-package com.mycompany.pruebaspractica1compiladores.Lexer;
+package com.mycompany.app_practica_1.Lexer;
 import java_cup.runtime.*;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import static com.mycompany.pruebaspractica1compiladores.Lexer.sym.*;
-import com.mycompany.pruebaspractica1compiladores.Parcer.ParamsSymbol;
+import static com.mycompany.app_practica_1.Lexer.sym.*;
+import com.mycompany.app_practica_1.Parser.ParamsSymbol;
 
 %%
 
@@ -12,6 +14,7 @@ import com.mycompany.pruebaspractica1compiladores.Parcer.ParamsSymbol;
 %class appLexer
 %cup
 /*%standalone*/
+%implements Serializable
 %unicode
 %line
 %column
@@ -227,9 +230,6 @@ Words = [a-zA-Z]+
     {Words}
         {
             error(yytext());
-            tmp_symbl = new Symbol (ERROR,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
-            after_symbl = tmp_symbl;
-            return tmp_symbl;
         }
     {LineTerminator}
         {
@@ -242,7 +242,4 @@ Words = [a-zA-Z]+
 }
 [^]     {
             error(yytext());
-            tmp_symbl = new Symbol (ERROR,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
-            after_symbl = tmp_symbl;
-            return tmp_symbl;
         }

@@ -33,7 +33,7 @@ public class appLexer implements java_cup.runtime.Scanner, Serializable {
    * l is of the form l = 2*k, k a non negative integer
    */
   private static final int ZZ_LEXSTATE[] = {
-     0, 0
+          0, 0
   };
 
   /**
@@ -42,7 +42,7 @@ public class appLexer implements java_cup.runtime.Scanner, Serializable {
   private static final int [] ZZ_CMAP_TOP = zzUnpackcmap_top();
 
   private static final String ZZ_CMAP_TOP_PACKED_0 =
-    "\1\0\u10ff\u0100";
+          "\1\0\u10ff\u0100";
 
   private static int [] zzUnpackcmap_top() {
     int [] result = new int[4352];
@@ -70,12 +70,12 @@ public class appLexer implements java_cup.runtime.Scanner, Serializable {
   private static final int [] ZZ_CMAP_BLOCKS = zzUnpackcmap_blocks();
 
   private static final String ZZ_CMAP_BLOCKS_PACKED_0 =
-    "\11\0\1\1\1\2\2\0\1\3\22\0\1\1\7\0"+
-    "\1\4\1\5\1\6\1\7\1\10\1\11\1\0\1\12"+
-    "\12\13\7\0\32\14\6\0\1\15\1\16\1\17\1\20"+
-    "\1\21\1\22\1\23\1\14\1\24\1\25\1\14\1\26"+
-    "\1\27\1\30\1\31\1\32\1\14\1\33\1\14\1\34"+
-    "\1\35\1\36\3\14\1\37\1\0\1\3\u0183\0";
+          "\11\0\1\1\1\2\2\0\1\3\22\0\1\1\7\0"+
+                  "\1\4\1\5\1\6\1\7\1\10\1\11\1\0\1\12"+
+                  "\12\13\7\0\32\14\6\0\1\15\1\16\1\17\1\20"+
+                  "\1\21\1\22\1\23\1\14\1\24\1\25\1\14\1\26"+
+                  "\1\27\1\30\1\31\1\32\1\14\1\33\1\14\1\34"+
+                  "\1\35\1\36\3\14\1\37\1\0\1\3\u0183\0";
 
   private static int [] zzUnpackcmap_blocks() {
     int [] result = new int[512];
@@ -102,9 +102,9 @@ public class appLexer implements java_cup.runtime.Scanner, Serializable {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-    "\1\0\1\1\3\2\1\3\1\4\1\5\1\6\1\7"+
-    "\1\10\1\11\1\12\60\1\1\13\16\1\1\14\6\1"+
-    "\1\15\6\1\1\16";
+          "\1\0\1\1\3\2\1\3\1\4\1\5\1\6\1\7"+
+                  "\1\10\1\11\1\12\60\1\1\13\16\1\1\14\6\1"+
+                  "\1\15\6\1\1\16";
 
   private static int [] zzUnpackAction() {
     int [] result = new int[91];
@@ -132,18 +132,18 @@ public class appLexer implements java_cup.runtime.Scanner, Serializable {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\40\0\100\0\140\0\200\0\40\0\40\0\40"+
-    "\0\40\0\40\0\40\0\40\0\240\0\300\0\340\0\u0100"+
-    "\0\u0120\0\u0140\0\u0160\0\u0180\0\u01a0\0\u01c0\0\u01e0\0\u0200"+
-    "\0\u0220\0\u0240\0\u0260\0\u0280\0\u02a0\0\u02c0\0\u02e0\0\u0300"+
-    "\0\u0320\0\u0340\0\u0360\0\u0380\0\u03a0\0\u03c0\0\u03e0\0\u0400"+
-    "\0\u0420\0\u0440\0\u0460\0\u0480\0\u04a0\0\u04c0\0\u04e0\0\u0500"+
-    "\0\u0520\0\u0540\0\u0560\0\u0580\0\u05a0\0\u05c0\0\u05e0\0\u0600"+
-    "\0\u0620\0\u0640\0\u0660\0\u0680\0\u06a0\0\300\0\u06c0\0\u06e0"+
-    "\0\u0700\0\u0720\0\u0740\0\u0760\0\u0780\0\u07a0\0\u07c0\0\u07e0"+
-    "\0\u0800\0\u0820\0\u0840\0\u0860\0\300\0\u0880\0\u08a0\0\u08c0"+
-    "\0\u08e0\0\u0900\0\u0920\0\300\0\u0940\0\u0960\0\u0980\0\u09a0"+
-    "\0\u09c0\0\u09e0\0\300";
+          "\0\0\0\40\0\100\0\140\0\200\0\40\0\40\0\40"+
+                  "\0\40\0\40\0\40\0\40\0\240\0\300\0\340\0\u0100"+
+                  "\0\u0120\0\u0140\0\u0160\0\u0180\0\u01a0\0\u01c0\0\u01e0\0\u0200"+
+                  "\0\u0220\0\u0240\0\u0260\0\u0280\0\u02a0\0\u02c0\0\u02e0\0\u0300"+
+                  "\0\u0320\0\u0340\0\u0360\0\u0380\0\u03a0\0\u03c0\0\u03e0\0\u0400"+
+                  "\0\u0420\0\u0440\0\u0460\0\u0480\0\u04a0\0\u04c0\0\u04e0\0\u0500"+
+                  "\0\u0520\0\u0540\0\u0560\0\u0580\0\u05a0\0\u05c0\0\u05e0\0\u0600"+
+                  "\0\u0620\0\u0640\0\u0660\0\u0680\0\u06a0\0\300\0\u06c0\0\u06e0"+
+                  "\0\u0700\0\u0720\0\u0740\0\u0760\0\u0780\0\u07a0\0\u07c0\0\u07e0"+
+                  "\0\u0800\0\u0820\0\u0840\0\u0860\0\300\0\u0880\0\u08a0\0\u08c0"+
+                  "\0\u08e0\0\u0900\0\u0920\0\300\0\u0940\0\u0960\0\u0980\0\u09a0"+
+                  "\0\u09c0\0\u09e0\0\300";
 
   private static int [] zzUnpackRowMap() {
     int [] result = new int[91];
@@ -169,50 +169,50 @@ public class appLexer implements java_cup.runtime.Scanner, Serializable {
   private static final int [] ZZ_TRANS = zzUnpackTrans();
 
   private static final String ZZ_TRANS_PACKED_0 =
-    "\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11"+
-    "\1\12\1\13\1\14\1\15\1\16\1\17\1\16\1\20"+
-    "\3\16\1\21\2\16\1\22\1\23\1\24\1\25\1\26"+
-    "\1\27\2\16\1\30\1\16\41\0\2\3\36\0\1\3"+
-    "\1\4\1\5\36\0\2\5\47\0\1\15\40\0\24\16"+
-    "\14\0\13\16\1\31\1\32\6\16\1\33\14\0\1\16"+
-    "\1\34\6\16\1\35\10\16\1\36\2\16\14\0\17\16"+
-    "\1\37\4\16\14\0\10\16\1\40\13\16\14\0\15\16"+
-    "\1\41\6\16\14\0\1\16\1\42\3\16\1\43\16\16"+
-    "\14\0\2\16\1\44\21\16\14\0\15\16\1\45\6\16"+
-    "\14\0\5\16\1\46\7\16\1\47\6\16\14\0\5\16"+
-    "\1\50\16\16\14\0\1\16\1\51\22\16\14\0\10\16"+
-    "\1\52\7\16\1\53\3\16\14\0\21\16\1\54\2\16"+
-    "\14\0\6\16\1\55\15\16\14\0\17\16\1\56\4\16"+
-    "\14\0\1\16\1\57\15\16\1\60\4\16\14\0\1\16"+
-    "\1\61\22\16\14\0\14\16\1\62\7\16\14\0\17\16"+
-    "\1\63\4\16\14\0\17\16\1\64\4\16\14\0\7\16"+
-    "\1\65\14\16\14\0\11\16\1\66\12\16\14\0\12\16"+
-    "\1\67\11\16\14\0\3\16\1\70\20\16\14\0\11\16"+
-    "\1\71\12\16\14\0\17\16\1\72\4\16\14\0\17\16"+
-    "\1\73\4\16\14\0\13\16\1\74\10\16\14\0\5\16"+
-    "\1\75\16\16\14\0\12\16\1\76\11\16\14\0\5\16"+
-    "\1\76\16\16\14\0\3\16\1\77\20\16\14\0\4\16"+
-    "\1\100\17\16\14\0\22\16\1\101\1\16\14\0\6\16"+
-    "\1\102\15\16\14\0\5\16\1\101\16\16\14\0\1\16"+
-    "\1\103\22\16\14\0\1\16\1\104\22\16\14\0\17\16"+
-    "\1\71\4\16\14\0\5\16\1\105\16\16\14\0\10\16"+
-    "\1\106\13\16\14\0\20\16\1\107\3\16\14\0\15\16"+
-    "\1\76\6\16\14\0\4\16\1\55\17\16\14\0\10\16"+
-    "\1\110\13\16\14\0\1\16\1\111\22\16\14\0\17\16"+
-    "\1\112\4\16\14\0\21\16\1\113\2\16\14\0\17\16"+
-    "\1\114\4\16\14\0\1\16\1\115\22\16\14\0\10\16"+
-    "\1\116\13\16\14\0\4\16\1\71\17\16\14\0\14\16"+
-    "\1\117\7\16\14\0\20\16\1\120\3\16\14\0\7\16"+
-    "\1\121\14\16\14\0\1\16\1\122\22\16\14\0\12\16"+
-    "\1\123\11\16\14\0\17\16\1\124\4\16\14\0\10\16"+
-    "\1\125\13\16\14\0\12\16\1\126\11\16\14\0\1\16"+
-    "\1\127\22\16\14\0\3\16\1\74\20\16\14\0\11\16"+
-    "\1\130\12\16\14\0\15\16\1\124\6\16\14\0\15\16"+
-    "\1\131\6\16\14\0\14\16\1\132\7\16\14\0\12\16"+
-    "\1\71\11\16\14\0\15\16\1\111\6\16\14\0\15\16"+
-    "\1\133\6\16\14\0\4\16\1\126\17\16\14\0\1\16"+
-    "\1\76\22\16\14\0\14\16\1\126\7\16\14\0\7\16"+
-    "\1\77\14\16";
+          "\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11"+
+                  "\1\12\1\13\1\14\1\15\1\16\1\17\1\16\1\20"+
+                  "\3\16\1\21\2\16\1\22\1\23\1\24\1\25\1\26"+
+                  "\1\27\2\16\1\30\1\16\41\0\2\3\36\0\1\3"+
+                  "\1\4\1\5\36\0\2\5\47\0\1\15\40\0\24\16"+
+                  "\14\0\13\16\1\31\1\32\6\16\1\33\14\0\1\16"+
+                  "\1\34\6\16\1\35\10\16\1\36\2\16\14\0\17\16"+
+                  "\1\37\4\16\14\0\10\16\1\40\13\16\14\0\15\16"+
+                  "\1\41\6\16\14\0\1\16\1\42\3\16\1\43\16\16"+
+                  "\14\0\2\16\1\44\21\16\14\0\15\16\1\45\6\16"+
+                  "\14\0\5\16\1\46\7\16\1\47\6\16\14\0\5\16"+
+                  "\1\50\16\16\14\0\1\16\1\51\22\16\14\0\10\16"+
+                  "\1\52\7\16\1\53\3\16\14\0\21\16\1\54\2\16"+
+                  "\14\0\6\16\1\55\15\16\14\0\17\16\1\56\4\16"+
+                  "\14\0\1\16\1\57\15\16\1\60\4\16\14\0\1\16"+
+                  "\1\61\22\16\14\0\14\16\1\62\7\16\14\0\17\16"+
+                  "\1\63\4\16\14\0\17\16\1\64\4\16\14\0\7\16"+
+                  "\1\65\14\16\14\0\11\16\1\66\12\16\14\0\12\16"+
+                  "\1\67\11\16\14\0\3\16\1\70\20\16\14\0\11\16"+
+                  "\1\71\12\16\14\0\17\16\1\72\4\16\14\0\17\16"+
+                  "\1\73\4\16\14\0\13\16\1\74\10\16\14\0\5\16"+
+                  "\1\75\16\16\14\0\12\16\1\76\11\16\14\0\5\16"+
+                  "\1\76\16\16\14\0\3\16\1\77\20\16\14\0\4\16"+
+                  "\1\100\17\16\14\0\22\16\1\101\1\16\14\0\6\16"+
+                  "\1\102\15\16\14\0\5\16\1\101\16\16\14\0\1\16"+
+                  "\1\103\22\16\14\0\1\16\1\104\22\16\14\0\17\16"+
+                  "\1\71\4\16\14\0\5\16\1\105\16\16\14\0\10\16"+
+                  "\1\106\13\16\14\0\20\16\1\107\3\16\14\0\15\16"+
+                  "\1\76\6\16\14\0\4\16\1\55\17\16\14\0\10\16"+
+                  "\1\110\13\16\14\0\1\16\1\111\22\16\14\0\17\16"+
+                  "\1\112\4\16\14\0\21\16\1\113\2\16\14\0\17\16"+
+                  "\1\114\4\16\14\0\1\16\1\115\22\16\14\0\10\16"+
+                  "\1\116\13\16\14\0\4\16\1\71\17\16\14\0\14\16"+
+                  "\1\117\7\16\14\0\20\16\1\120\3\16\14\0\7\16"+
+                  "\1\121\14\16\14\0\1\16\1\122\22\16\14\0\12\16"+
+                  "\1\123\11\16\14\0\17\16\1\124\4\16\14\0\10\16"+
+                  "\1\125\13\16\14\0\12\16\1\126\11\16\14\0\1\16"+
+                  "\1\127\22\16\14\0\3\16\1\74\20\16\14\0\11\16"+
+                  "\1\130\12\16\14\0\15\16\1\124\6\16\14\0\15\16"+
+                  "\1\131\6\16\14\0\14\16\1\132\7\16\14\0\12\16"+
+                  "\1\71\11\16\14\0\15\16\1\111\6\16\14\0\15\16"+
+                  "\1\133\6\16\14\0\4\16\1\126\17\16\14\0\1\16"+
+                  "\1\76\22\16\14\0\14\16\1\126\7\16\14\0\7\16"+
+                  "\1\77\14\16";
 
   private static int [] zzUnpackTrans() {
     int [] result = new int[2560];
@@ -247,9 +247,9 @@ public class appLexer implements java_cup.runtime.Scanner, Serializable {
    * {@link #ZZ_PUSHBACK_2BIG} respectively.
    */
   private static final String ZZ_ERROR_MSG[] = {
-    "Unknown internal scanner error",
-    "Error: could not match input",
-    "Error: pushback value was too large"
+          "Unknown internal scanner error",
+          "Error: could not match input",
+          "Error: pushback value was too large"
   };
 
   /**
@@ -258,7 +258,7 @@ public class appLexer implements java_cup.runtime.Scanner, Serializable {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\1\0\1\11\3\1\7\11\117\1";
+          "\1\0\1\11\3\1\7\11\117\1";
 
   private static int [] zzUnpackAttribute() {
     int [] result = new int[91];
@@ -338,25 +338,27 @@ public class appLexer implements java_cup.runtime.Scanner, Serializable {
   private boolean zzEOFDone;
 
   /* user code: */
-    private Symbol after_symbl = new Symbol(0);
-    private Symbol tmp_symbl = new Symbol(0);
+  private Symbol after_symbl = new Symbol(0);
+  private Symbol tmp_symbl = new Symbol(0);
 
-    private List<String> errorsList = new ArrayList<>();
+  private List<String> errorsList = new ArrayList<>();
 
-    private reportLexer reporte = new reportLexer();
 
-    private void error(String lexeme) {
-        System.out.printf("Error lexico \"%s\" linea %d,  columna %d. \n", lexeme, yyline + 1, yycolumn + 1);
-        errorsList.add(String.format("Error Lexico en el Texto: %s  linea %d, columna %d. Corrige e intenta de nuevo.", lexeme, yyline + 1, yycolumn + 1));
-    }
+  private reportLexer reporte = new reportLexer();
 
-    public reportLexer getReporte(){
-      return reporte;
-    }
 
-    public List<String> getErrorsList() {
-        return errorsList;
-    }
+
+  private void error(String lexeme) {
+    System.out.printf("Error lexico \"%s\" linea %d,  columna %d. \n", lexeme, yyline + 1, yycolumn + 1);
+    errorsList.add(String.format("Error Lexico en el Texto: %s  linea %d, columna %d. Corrige e intenta de nuevo.", lexeme, yyline + 1, yycolumn + 1));
+  }
+  public List<String> getErrorsList() {
+    return errorsList;
+  }
+  public reportLexer getReporte(){
+    return reporte;
+  }
+
 
   /**
    * Creates a new scanner
@@ -388,8 +390,8 @@ public class appLexer implements java_cup.runtime.Scanner, Serializable {
       zzEndRead += zzFinalHighSurrogate;
       zzFinalHighSurrogate = 0;
       System.arraycopy(zzBuffer, zzStartRead,
-                       zzBuffer, 0,
-                       zzEndRead - zzStartRead);
+              zzBuffer, 0,
+              zzEndRead - zzStartRead);
 
       /* translate stored positions */
       zzEndRead -= zzStartRead;
@@ -415,7 +417,7 @@ public class appLexer implements java_cup.runtime.Scanner, Serializable {
     /* not supposed to occur according to specification of java.io.Reader */
     if (numRead == 0) {
       throw new java.io.IOException(
-          "Reader returned 0 characters. See JFlex examples/zero-reader for a workaround.");
+              "Reader returned 0 characters. See JFlex examples/zero-reader for a workaround.");
     }
     if (numRead > 0) {
       zzEndRead += numRead;
@@ -482,16 +484,16 @@ public class appLexer implements java_cup.runtime.Scanner, Serializable {
    * Resets the input position.
    */
   private final void yyResetPosition() {
-      zzAtBOL  = true;
-      zzAtEOF  = false;
-      zzCurrentPos = 0;
-      zzMarkedPos = 0;
-      zzStartRead = 0;
-      zzEndRead = 0;
-      zzFinalHighSurrogate = 0;
-      yyline = 0;
-      yycolumn = 0;
-      yychar = 0L;
+    zzAtBOL  = true;
+    zzAtEOF  = false;
+    zzCurrentPos = 0;
+    zzMarkedPos = 0;
+    zzStartRead = 0;
+    zzEndRead = 0;
+    zzFinalHighSurrogate = 0;
+    yyline = 0;
+    yycolumn = 0;
+    yychar = 0L;
   }
 
 
@@ -608,8 +610,8 @@ public class appLexer implements java_cup.runtime.Scanner, Serializable {
   private void zzDoEOF() throws java.io.IOException {
     if (!zzEOFDone) {
       zzEOFDone = true;
-    
-  yyclose();    }
+
+      yyclose();    }
   }
 
 
@@ -648,31 +650,31 @@ public class appLexer implements java_cup.runtime.Scanner, Serializable {
         zzCh = Character.codePointAt(zzBufferL, zzCurrentPosL, zzMarkedPosL);
         zzCharCount = Character.charCount(zzCh);
         switch (zzCh) {
-        case '\u000B':  // fall through
-        case '\u000C':  // fall through
-        case '\u0085':  // fall through
-        case '\u2028':  // fall through
-        case '\u2029':
-          yyline++;
-          yycolumn = 0;
-          zzR = false;
-          break;
-        case '\r':
-          yyline++;
-          yycolumn = 0;
-          zzR = true;
-          break;
-        case '\n':
-          if (zzR)
-            zzR = false;
-          else {
+          case '\u000B':  // fall through
+          case '\u000C':  // fall through
+          case '\u0085':  // fall through
+          case '\u2028':  // fall through
+          case '\u2029':
             yyline++;
             yycolumn = 0;
-          }
-          break;
-        default:
-          zzR = false;
-          yycolumn += zzCharCount;
+            zzR = false;
+            break;
+          case '\r':
+            yyline++;
+            yycolumn = 0;
+            zzR = true;
+            break;
+          case '\n':
+            if (zzR)
+              zzR = false;
+            else {
+              yyline++;
+              yycolumn = 0;
+            }
+            break;
+          default:
+            zzR = false;
+            yycolumn += zzCharCount;
         }
       }
 
@@ -758,204 +760,201 @@ public class appLexer implements java_cup.runtime.Scanner, Serializable {
 
       if (zzInput == YYEOF && zzStartRead == zzCurrentPos) {
         zzAtEOF = true;
-            zzDoEOF();
-          { return new java_cup.runtime.Symbol(sym.EOF); }
+        zzDoEOF();
+        { return new java_cup.runtime.Symbol(sym.EOF); }
       }
       else {
         switch (zzAction < 0 ? zzAction : ZZ_ACTION[zzAction]) {
           case 1:
-            { error(yytext());
-            tmp_symbl = new Symbol (ERROR,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
-            after_symbl = tmp_symbl;
-            return tmp_symbl;
-            }
-            // fall through
+          { error(yytext());
+          }
+          // fall through
           case 15: break;
           case 2:
-            { /*Do nothing*/
-            }
-            // fall through
+          { /*Do nothing*/
+          }
+          // fall through
           case 16: break;
           case 3:
-            { //System.out.println("Parentecis Apertura: "+yytext());
+          { //System.out.println("Parentecis Apertura: "+yytext());
             tmp_symbl = new Symbol (PARENTECIS_APERTURA,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
             after_symbl =tmp_symbl;
             return tmp_symbl;
-            }
-            // fall through
+          }
+          // fall through
           case 17: break;
           case 4:
-            { //System.out.println("Parentecis Cierre: "+yytext());
+          { //System.out.println("Parentecis Cierre: "+yytext());
             tmp_symbl = new Symbol (PARENTECIS_CIERRE,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
             after_symbl = tmp_symbl;
             return tmp_symbl;
-            }
-            // fall through
+          }
+          // fall through
           case 18: break;
           case 5:
-            { //System.out.println("Signo multiplicacion: "+yytext());
+          { //System.out.println("Signo multiplicacion: "+yytext());
             tmp_symbl = new Symbol (MULTI,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
             after_symbl = tmp_symbl;
             reporte.countMulti.add(tmp_symbl);
             return tmp_symbl;
-            }
-            // fall through
+          }
+          // fall through
           case 19: break;
           case 6:
-            { //System.out.println("Signo mas: "+yytext());
+          { //System.out.println("Signo mas: "+yytext());
             tmp_symbl = new Symbol (SUMA,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
             after_symbl = tmp_symbl;
-              reporte.countMas.add(tmp_symbl);
+            reporte.countMas.add(tmp_symbl);
             return tmp_symbl;
-            }
-            // fall through
+          }
+          // fall through
           case 20: break;
           case 7:
-            { //System.out.println("Separador coma: "+yytext());
+          { //System.out.println("Separador coma: "+yytext());
             tmp_symbl = new Symbol (COMA,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
             after_symbl = tmp_symbl;
             return tmp_symbl;
-            }
-            // fall through
+          }
+          // fall through
           case 21: break;
           case 8:
-            { //System.out.println("Signo menos: "+yytext());
+          { //System.out.println("Signo menos: "+yytext());
             tmp_symbl = new Symbol (RESTA,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
             after_symbl = tmp_symbl;
-              reporte.countMenos.add(tmp_symbl);
+            reporte.countMenos.add(tmp_symbl);
             return tmp_symbl;
-            }
-            // fall through
+          }
+          // fall through
           case 22: break;
           case 9:
-            { //System.out.println("Signo divicion: "+yytext());
-           tmp_symbl = new Symbol (DIV,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
-           after_symbl = tmp_symbl;
-              reporte.countDiv.add(tmp_symbl);
+          { //System.out.println("Signo divicion: "+yytext());
+            tmp_symbl = new Symbol (DIV,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+            after_symbl = tmp_symbl;
+            reporte.countDiv.add(tmp_symbl);
             return tmp_symbl;
-            }
-            // fall through
+          }
+          // fall through
           case 23: break;
           case 10:
-            { //System.out.println("Numero encontrado: "+yytext());
+          { //System.out.println("Numero encontrado: "+yytext());
             tmp_symbl = new Symbol (NUMBER,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
             after_symbl = tmp_symbl;
             return tmp_symbl;
-            }
-            // fall through
+          }
+          // fall through
           case 24: break;
           case 11:
-            { //System.out.println("Color de la figura: "+yytext());
+          { //System.out.println("Color de la figura: "+yytext());
             tmp_symbl = new Symbol (COLOR,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
             after_symbl = tmp_symbl;
             switch(yytext()){
-                case "azul":
-                  reporte.countAzul++;
+              case "azul":
+                reporte.countAzul++;
                 break;
-                case "rojo":
-                  reporte.countRojo++;
+              case "rojo":
+                reporte.countRojo++;
                 break;
-                case "verde":
-                  reporte.countVerde++;
+              case "verde":
+                reporte.countVerde++;
                 break;
-                case "amarillo":
-                  reporte.countAmarillo++;
+              case "amarillo":
+                reporte.countAmarillo++;
                 break;
-                case "naranja":
-                  reporte.countNaranja++;
+              case "naranja":
+                reporte.countNaranja++;
                 break;
-                case "morado":
-                  reporte.countMorado++;
+              case "morado":
+                reporte.countMorado++;
                 break;
-                case "cafe":
-                  reporte.countCafe++;
+              case "cafe":
+                reporte.countCafe++;
                 break;
-                case "negro":
-                  reporte.countNegro++;
+              case "negro":
+                reporte.countNegro++;
                 break;
             }
             return tmp_symbl;
-            }
-            // fall through
+          }
+          // fall through
           case 25: break;
           case 12:
-            { //System.out.println("Tipo de animacion: "+yytext());
+          { //System.out.println("Tipo de animacion: "+yytext());
             if(yytext().equals("linea")){
-                if(after_symbl.value != null){
-                    if(after_symbl.sym==COMA){
-                        tmp_symbl = new Symbol (ANIMATION,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
-                      reporte.animLinea++;
-                    }else{
-                        tmp_symbl = new Symbol (SHAPE_LIN,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
-                      reporte.shapeLinea++;
-                    }
-                }else{
-                    tmp_symbl = new Symbol (ANIMATION,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+              if(after_symbl.value != null){
+                if(after_symbl.sym==COMA){
+                  tmp_symbl = new Symbol (ANIMATION,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
                   reporte.animLinea++;
+                }else{
+                  tmp_symbl = new Symbol (SHAPE_LIN,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+                  reporte.shapeLinea++;
                 }
-            }else{
+              }else{
                 tmp_symbl = new Symbol (ANIMATION,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+                reporte.animLinea++;
+              }
+            }else{
+              tmp_symbl = new Symbol (ANIMATION,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
               reporte.animCurva++;
             }
             after_symbl = tmp_symbl;
             return tmp_symbl;
-            }
-            // fall through
+          }
+          // fall through
           case 26: break;
           case 13:
-            { //System.out.println("Palabra recervada: "+yytext());
+          { //System.out.println("Palabra recervada: "+yytext());
             switch (yytext()) {
-                case "graficar":
-                    tmp_symbl = new Symbol (RESERVATE_WORD_GRAPHIC,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
-                    after_symbl = tmp_symbl;
-                    return tmp_symbl;
-                case "animar":
-                    tmp_symbl = new Symbol (RESERVATE_WORD_ANIMATION,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
-                    after_symbl = tmp_symbl;
-                    return tmp_symbl;
-                case "objeto":
-                    tmp_symbl = new Symbol (RESERVATE_WORD_OBJECT,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
-                    after_symbl = tmp_symbl;
-                    return tmp_symbl;
-                case "anterior":
-                    tmp_symbl = new Symbol (RESERVATE_WORD_REFERENCE,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
-                    after_symbl = tmp_symbl;
-                    return tmp_symbl;
+              case "graficar":
+                tmp_symbl = new Symbol (RESERVATE_WORD_GRAPHIC,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+                after_symbl = tmp_symbl;
+                return tmp_symbl;
+              case "animar":
+                tmp_symbl = new Symbol (RESERVATE_WORD_ANIMATION,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+                after_symbl = tmp_symbl;
+                return tmp_symbl;
+              case "objeto":
+                tmp_symbl = new Symbol (RESERVATE_WORD_OBJECT,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+                after_symbl = tmp_symbl;
+                return tmp_symbl;
+              case "anterior":
+                tmp_symbl = new Symbol (RESERVATE_WORD_REFERENCE,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+                after_symbl = tmp_symbl;
+                return tmp_symbl;
             }
-            }
-            // fall through
+          }
+          // fall through
           case 27: break;
           case 14:
-            { //System.out.println("Tipo de figura: "+yytext());
+          { //System.out.println("Tipo de figura: "+yytext());
             switch (yytext()) {
-                case "circulo":
-                    tmp_symbl = new Symbol (SHAPE_CIR,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
-                    after_symbl = tmp_symbl;
-                  reporte.shapeCirculo++;
-                    return tmp_symbl;
-                case "cuadrado":
-                    tmp_symbl = new Symbol (SHAPE_CUA,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
-                    after_symbl = tmp_symbl;
-                  reporte.shapeCuadrado++;
-                    return tmp_symbl;
-                case "rectangulo":
-                    tmp_symbl = new Symbol (SHAPE_REC,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
-                    after_symbl = tmp_symbl;
-                  reporte.shapeRect++;
-                    return tmp_symbl;
-                case "linea":
-                    tmp_symbl = new Symbol (SHAPE_LIN,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
-                    after_symbl = tmp_symbl;
-                  reporte.shapeLinea++;
-                    return tmp_symbl;
-                case "poligono":
-                    tmp_symbl = new Symbol (SHAPE_POL,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
-                    after_symbl = tmp_symbl;
-                  reporte.shapePoligono++;
-                    return tmp_symbl;
+              case "circulo":
+                tmp_symbl = new Symbol (SHAPE_CIR,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+                after_symbl = tmp_symbl;
+                reporte.shapeCirculo++;
+                return tmp_symbl;
+              case "cuadrado":
+                tmp_symbl = new Symbol (SHAPE_CUA,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+                after_symbl = tmp_symbl;
+                reporte.shapeCuadrado++;
+                return tmp_symbl;
+              case "rectangulo":
+                tmp_symbl = new Symbol (SHAPE_REC,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+                after_symbl = tmp_symbl;
+                reporte.shapeRect++;
+                return tmp_symbl;
+              case "linea":
+                tmp_symbl = new Symbol (SHAPE_LIN,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+                after_symbl = tmp_symbl;
+                reporte.shapeLinea++;
+                return tmp_symbl;
+              case "poligono":
+                tmp_symbl = new Symbol (SHAPE_POL,after_symbl.sym,0, new ParamsSymbol(yyline+1, yycolumn+1,yytext()));
+                after_symbl = tmp_symbl;
+                reporte.shapePoligono++;
+                return tmp_symbl;
             }
-            }
-            // fall through
+          }
+          // fall through
           case 28: break;
           default:
             zzScanError(ZZ_NO_MATCH);

@@ -18,8 +18,6 @@ public class lienzo extends View {
     }
     protected void onDraw(Canvas canvas){
         canvas.drawRGB(255,255,255);
-
-
         /*
         for (int i=1; i<=5; i++){
             pincel.setStrokeWidth(15);
@@ -27,20 +25,18 @@ public class lienzo extends View {
         }*/
 
         dibujarFiguras(sentencias,canvas);
-
-
-
     }
 
     public void dibujarFiguras(List<Object> sentencias, Canvas canvas){
         for(Object obj: sentencias){
             if(obj instanceof Circulo){
-                Circulo tmp = (Circulo)obj;
-                /*
-                canvas.drawCircle(tmp.getPosx(),tmp.getPosy(),tmp.getRadio(),color(tmp.getColor()));
-                canvas.drawCircle(tmp.getPosx(),tmp.getPosy(),(tmp.getRadio()-ANCHO),color("default"));
-                */
 
+                Circulo tmp = (Circulo)obj;
+                canvas.drawCircle(tmp.getPosx(),tmp.getPosy(),tmp.getRadio(),color(tmp.getColor()));
+
+                //canvas.drawCircle(tmp.getPosx(),tmp.getPosy(),(tmp.getRadio()-ANCHO),color("default"));
+
+                /*
                 Paint tmpPincel = color(tmp.getColor());
                 tmpPincel.setStrokeWidth(ANCHO);
                 double j =0;
@@ -70,12 +66,10 @@ public class lienzo extends View {
             }
             if(obj instanceof Cuadrado){
                 Cuadrado tmp = (Cuadrado)obj;
-                this.drawCuadrilatero(tmp.getPosx(),tmp.getPosy(),tmp.getTamLado(),tmp.getTamLado(),tmp.getColor(),canvas);
-
-                /*
+                //this.drawCuadrilatero(tmp.getPosx(),tmp.getPosy(),tmp.getTamLado(),tmp.getTamLado(),tmp.getColor(),canvas);
                 canvas.drawRect(tmp.getPosx(),tmp.getPosy(),tmp.getPosx()+tmp.getTamLado(),tmp.getPosy()+tmp.getTamLado(),color(tmp.getColor()));
-                canvas.drawRect(tmp.getPosx()+ANCHO,tmp.getPosy()+ANCHO,tmp.getPosx()+tmp.getTamLado()-ANCHO,tmp.getPosy()+tmp.getTamLado()-ANCHO,color("default"));
-                */
+                //canvas.drawRect(tmp.getPosx()+ANCHO,tmp.getPosy()+ANCHO,tmp.getPosx()+tmp.getTamLado()-ANCHO,tmp.getPosy()+tmp.getTamLado()-ANCHO,color("default"));
+
 
             }
             if(obj instanceof Linea){
@@ -90,7 +84,8 @@ public class lienzo extends View {
             }
             if(obj instanceof Rectangulo){
                 Rectangulo tmp = (Rectangulo)obj;
-                this.drawCuadrilatero(tmp.getPosx(),tmp.getPosy(),tmp.getAlto(),tmp.getAncho(),tmp.getColor(),canvas);
+                //this.drawCuadrilatero(tmp.getPosx(),tmp.getPosy(),tmp.getAlto(),tmp.getAncho(),tmp.getColor(),canvas);
+                canvas.drawRect(tmp.getPosx(),tmp.getPosy(),tmp.getPosx()+tmp.getAlto(),tmp.getPosy()+tmp.getAncho(),color(tmp.getColor()));
             }
         }
     }
